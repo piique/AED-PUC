@@ -27,7 +27,8 @@ Descrição: procedimento que calcula e imprime a sequencia:
 Entradas: não possui
 Saída: um valor float
 */
-void calculaSerie(){
+void calculaSerie()
+{
   float numerador = 100, denominador = 0, soma = 0;
 
   for (int i = 0; i < 20; i++) // for para rodar 20 vezes

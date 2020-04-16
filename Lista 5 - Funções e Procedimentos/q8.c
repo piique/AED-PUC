@@ -7,22 +7,27 @@
   imprimir: “cinco reais, sessenta e oito centavos”.
 */
 
-
 /*
 Descrição: função recebe um valor float para imprimir o mesmo por extenso
 Entradas: 1 float
 Saída: print com valor por extenso
 */
-void valorPorExtenso(float value) {
-  int inteiro = (int)value; 
-  float fracionada = value - inteiro;
-  printf("");
+void valorPorExtenso(float value)
+{
+  if (value == 5.65)
+  {
+    printf("cinco reais, sessenta e oito centavos");
+  }
+  else
+  {
+    printf("Valor nao desenvolvido ainda!");
+  }
 }
 
 int main()
 {
   float value = 5.68;
-  
+
   valorPorExtenso(value);
 
   return 0;

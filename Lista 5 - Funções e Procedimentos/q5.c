@@ -11,9 +11,10 @@ Descrição: procedimento que calcula e imprime a sequencia:
 Entradas: não possui
 Saída: um valor float
 */
-void calculaSomatorio(){
+void calculaSomatorio()
+{
   int numerador = 1;
-  float soma = 0, 
+  float soma = 0,
         denominador = 225; // denominador declarado como float por problemas com alguns compiladores ao usar sqrt
 
   while (denominador >= 1)

@@ -52,7 +52,3 @@ void maiorEMenor(float n1, float n2, float n3, float *min, float *max)
     *min = n3;
   }
 }
-
-// n1 = 2
-// n2 = 1
-// n3 = 2

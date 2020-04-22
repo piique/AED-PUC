@@ -177,19 +177,24 @@ Saída: Não possui saida, valor alterado por referencia
 */
 void deslocaEsquerda(int *a, int *b, int *c, int *d, int *e)
 {
-  int antigoA = *a, antigoB = *b, antigoC = *c, antigoD = *d, antigoE = *e;
-  *a = antigoE;
-  *b = antigoA;
-  *c = antigoB;
-  *d = antigoC;
-  *e = antigoD;
+  int aux = *a, aux1;
 
   printf("NOME_VARIAVEL | ENDERECO  | VALOR ANTIGO | VALOR  NOVO\n");
-  printf("    a         | %p  |       %i      |     %i\n", a, antigoA, *a);
-  printf("    b         | %p  |       %i      |     %i\n", b, antigoB, *b);
-  printf("    c         | %p  |       %i      |     %i\n", c, antigoC, *c);
-  printf("    d         | %p  |       %i      |     %i\n", d, antigoD, *d);
-  printf("    e         | %p  |       %i      |     %i\n", e, antigoE, *e);
+  aux = *a;
+  *a = *e;
+  printf("    a         | %p  |       %i      |     %i\n", a, aux, *a);
+  aux1 = *b;
+  *b = aux;
+  printf("    b         | %p  |       %i      |     %i\n", b, aux1, *b);
+  aux = *c;
+  *c = aux1;
+  printf("    c         | %p  |       %i      |     %i\n", c, aux, *c);
+  aux1 = *d;
+  *d = aux;
+  printf("    d         | %p  |       %i      |     %i\n", d, aux1, *d);
+  aux = *e;
+  *e = aux1;
+  printf("    e         | %p  |       %i     |     %i\n", e, aux, *e);
 }
 
 /*

@@ -14,7 +14,7 @@ void descreveVariaveis();
 int main()
 {
   setlocale(LC_ALL, "Portuguese_Brasil");
-  int testando = 1; // testando - 1;
+  int testando = 0; // testando - 1;
   int opc = -1;
   float n1, n2, n3, maior, menor, media;    // questões 1 e 2
   int num1, num2, num3, num4, num5, result; // questões 3 e 4
@@ -23,7 +23,7 @@ int main()
   {
     system("cls");
     printf("------------------------------------ MENU ------------------------------------");
-    printf("\nEscolha uma das questoes:  ");
+    printf("\nEscolha uma das questões:  ");
     printf("\n 1 - Retornar maior e menor elemento por referencia");
     printf("\n 2 - Calcular media usando parametros por referencia");
     printf("\n 3 - Receber A e B e retornar o valor verdade de ⌐ (A ^ B)");

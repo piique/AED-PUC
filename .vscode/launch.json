@@ -5,17 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "g++.exe build and debug active file",
+      "name": "gcc.exe build and debug active file",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
+      "environment": [
+        {
+          "name": "PATH",
+          "value": "%PATH%;D:\\MinGW\\bin"
+        }
+      ],
+      "externalConsole": true,
       "MIMode": "gdb",
-      "miDebuggerPath": "C:\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\gdb.exe",
+      "miDebuggerPath": "D:\\MinGW\\bin\\gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -23,7 +28,7 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "g++.exe build active file"
+      "preLaunchTask": "gcc.exe build active file"
     },
     {
       "name": "run node",

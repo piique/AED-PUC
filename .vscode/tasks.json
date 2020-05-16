@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "gcc build active file",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/bin/${fileBasenameNoExtension}",
+        "-I",
+        "${fileDirname}",
+        "-Wall",
+        "-Wextra"
+      ],
+      "options": {
+        "cwd": "/usr/bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": [
+        // "create bin folder"
+      ]
+    },
+    {
+      "type": "shell",
+      "label": "gcc build file group",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-g",
+        "${fileDirname}/*.c",
+        "${fileDirname}/*.h",
+        "-o",
+        "${fileDirname}/bin/${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "/usr/bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "dependsOn": [
+        "create bin folder"
+      ]
+    },
+    {
+      "label": "create bin folder",
+      "type": "shell",
+      "command": "mkdir -p ${fileDirname}/bin"
+    }
+  ]
+}

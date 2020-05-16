@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "cmath": "c",
+    "limits": "c"
+  },
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 0}"
+}

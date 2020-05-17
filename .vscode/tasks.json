@@ -11,9 +11,7 @@
         "-o",
         "${fileDirname}/bin/${fileBasenameNoExtension}",
         "-I",
-        "${fileDirname}",
-        "-Wall",
-        "-Wextra"
+        "${fileDirname}"
       ],
       "options": {
         "cwd": "/usr/bin"

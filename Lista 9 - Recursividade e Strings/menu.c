@@ -4,429 +4,279 @@
 #include <stdlib.h>  // limpar console: system("cls");
 #include <time.h>
 
-int divisao(int a, int b);
-int qtdDigitos(int a);
-int multiplica(int a, int b);
-int somaDigitos(int a);
-float progressaoAritimetica(float razao, float primeiroTermo, int n);
-int questao6();
-int questao7();
-int questao8();
-int questao9();
-int questao10();
-int questao11();
-int questao12();
-int func(int x);
-int questao13();
-void preencheVetor(int *vetor, int n);
-void ordenaVetor(int *vetor, int n);
-void buscaSegundoMenor(int *vetor, int n, int *segundoMenor);
-int questao14();
+#ifdef WIN32
+#define PAUSE 1
+#else
+#define PAUSE 0
+#endif
+
+// Declaração de funções
+void questao1();
+void questao2_6();
+void questao7();
+void questao8();
+void questao9();
+void questao10();
+
+void systemPause();
+void preencheVetor(int *vetor, int tamanho);
+void printaVetor(int vetor[], int tamanho);
+int procuraNoVetor(int vetor[], int k, int tamanhoVetor);
+int maxVetor(int vetor[], int tamanho);
+int minVetor(int vetor[], int tamanho);
+int somaVetor(int vetor[], int tamanho);
+int multiplicaVetor(int vetor[], int tamanho);
+float mediaVetor(int[], int);
+float _mediaVetor(int[], int, int, int);
 
 int main() {
-    setlocale(LC_ALL, "Portuguese_Brasil");
-    int opc = -1;
-    int n1, n2;
-    float razao = 3, primeiroTermo = 1;
-    int n_esimoTermo = 6;
+  setlocale(LC_ALL, "Portuguese_Brasil");
+  int opc = -1;
+  while (opc != 0) {
+    printf("------------------------------------ MENU ------------------------------------");
+    printf("\nEscolha uma das questões:  ");
+    printf("\n 1    - Questao 1");
+    printf("\n 2-6  - Questoes de 2 a 6");
+    printf("\n 7    - Questao 7");
+    printf("\n 8    - Questao 8");
+    printf("\n 9    - Questao 9");
+    printf("\n 10   - Questao 10");
+    printf("\n 0    - Sair");
+    printf("\n\nOpc: ");
 
-    while (opc != 0) {
-        system("cls");
-        printf("------------------------------------ MENU ------------------------------------");
-        printf("\nEscolha uma das questões:  ");
-        printf("\n 1  - Funcao recursiva que divide A por B atraves de subtracao");
-        printf("\n 2  - Quantidade de digitos de um inteiro");
-        printf("\n 3  - Soma dos digitos de um inteiro");
-        printf("\n 4  - Multiplicacao de dois numeros atraves de soma");
-        printf("\n 5  - n-esimo termo de uma progressão geometrica");
-        printf("\n 6  - Relatorio da observacao do trecho de codigo passado na questao");
-        printf("\n 7  - Imprimir os elementos do vetor cujo valor seja igual ao indice da posicao");
-        printf("\n 8  - Preencher vetor com numeros inteiros de 0 a 10");
-        printf("\n 9  - Gerar temperaturas aleatorias entre 18 e 40 e imprimir alguns valores");
-        printf("\n 10 - Preencher vetor com a seguinte regra: se a posição do vetor é múltipla de 2, deve-se armazenar 1");
-        printf("\n 11 - Pegar N numeros x (de 0 a 9) e armazenar na posicao x do vetor o numero de vezes em que x aparece");
-        printf("\n 12 - Preencher vetor com 100 primeiros numeros da serie Fibonacci");
-        printf("\n 13 - Algoritmo que preenche um vetor com o resultado da função f(x) = 3x³ + 2x² +1x -5, onde X eh o indice da posicao do vetor. Apos preencher o vetor, imprima seu conteudo");
-        printf("\n 14 - Armazena N inputs e depois retorna o segundo menor valor do vetor");
-        printf("\n 0 - Sair");
-        printf("\n\nOpc: ");
+    scanf("%i", &opc);
 
-        scanf("%i", &opc);
+    switch (opc) {
+      case 1:
+        printf("\n\nQUESTAO 1\n");
+        questao1();
+        break;
 
-        switch (opc) {
-            case 1:
-                printf("Digite 2 numeros: ");
-                scanf("%i %i", &n1, &n2);
-                printf("\nResultado da divisao de %i por %i eh: %i", n1, n2, divisao(n1, n2));
-                return 0;
-                break;
+      case 2:
+        printf("\n\nQUESTOES 2 a 6\n");
+        questao2_6();
+        break;
 
-            case 2:
-                printf("\nDigite 1 numero inteiro: ");
-                scanf("%i", &n1);
-                printf("\nQuantidade de digitos: %i\n", qtdDigitos(n1));
-                break;
+      case 3:
+        printf("\n\nQUESTOES 2 a 6\n");
+        questao2_6();
+        break;
 
-            case 3:
-                printf("\nDigite 1 numero inteiro: ");
-                scanf("%i", &n1);
-                printf("\nSoma dos digitos do inteiro eh: %i", somaDigitos(n1));
-                return 0;
-                break;
+      case 4:
+        printf("\n\nQUESTOES 2 a 6\n");
+        questao2_6();
+        break;
 
-            case 4:
-                printf("Digite 2 numeros: ");
-                scanf("%i %i", &n1, &n2);
-                printf("\nResultado da multiplica de %i por %i eh: %i", n1, n2, multiplica(n1, n2));
-                return 0;
-                break;
+      case 5:
+        printf("\n\nQUESTOES 2 a 6\n");
+        questao2_6();
+        break;
 
-            case 5:
-                printf("\nProgressao geometrica\nDigite a razao: ");
-                scanf("%f", &razao);
-                printf("Digite o primeiro termo: ");
-                scanf("%f", &primeiroTermo);
-                printf("Digite a posicao do termo a ser descoberto: ");
-                scanf("%i", &n_esimoTermo);
+      case 6:
+        printf("\n\nQUESTOES 2 a 6\n");
+        questao2_6();
+        break;
+      case 7:
+        break;
 
-                printf("\nResultado: %0.2f", progressaoAritimetica(razao, primeiroTermo, n_esimoTermo));
-                return 0;
-                break;
+      case 8:
+        break;
+      case 9:
+        break;
 
-            case 6:
-                questao6();
-                break;
-            case 7:
-                questao7();
-                break;
+      case 10:
+        break;
 
-            case 8:
-                questao8();
-                break;
-            case 9:
-                questao9();
-                break;
-
-            case 10:
-                questao10();
-                break;
-
-            case 11:
-                questao11();
-                break;
-
-            case 12:
-                questao12();
-                break;
-
-            case 13:
-                questao13();
-                break;
-
-            case 14:
-                questao14();
-                break;
-
-            case 0:
-                printf("Saindo...");
-                return 0;
-                break;
-
-            default:
-                printf("Escolha invalida! Tecle enter para voltar ao menu.\n");
-        }
-        printf("\nTecle Enter para continuar...\n");
-        getch();
-    }
-
-    return 0;
-}
-
-/*
-Descrição: recebe 2 numeros inteiros e retorna a divisao entre eles
-Entradas: 2 inteiros
-Saída: 1 inteiro
-*/
-int divisao(int a, int b) {
-    if (a - b < 0) {
+      case 0:
+        printf("Saindo...\n\n");
         return 0;
+        break;
+
+      default:
+        printf("Escolha invalida! Precione enter para voltar ao menu.\n");
+        systemPause();
     }
-    return divisao(a - b, b) + 1;
-}
-/*
-Descrição: recebe 1 inteiro e retorna a quantidade de digitos
-Entradas: 1 inteiro
-Saída: 1 inteiro
-*/
-int qtdDigitos(int a) {
-    int count = 1;
-    if (a < 10) {
-        return 1;
-    } else {
-        count += qtdDigitos(a / 10);
-        return count;
-    }
+  }
+
+  return 0;
 }
 
-/*
-Descrição: recebe 2 inteiros e retorna a multiplicacao deles
-Entradas:  inteiro
-Saída: 1 inteiro
-*/
-int multiplica(int a, int b) {
-    if (a == 0 || b == 0) {
-        return 0;
-    } else if (a > 0 && b > 1) {
-        return a + multiplica(a, --b);
-    }
+void questao1() {
+  int vetor[5], k, resultado;
+
+  preencheVetor(vetor, 5);
+  printf("\nPrintando vetor...");
+  printaVetor(vetor, 5);
+
+  printf("Digite um valor a ser procurado no vetor acima: ");
+  scanf("%i", &k);
+
+  resultado = procuraNoVetor(vetor, k, 5);
+  if (resultado == -1) {
+    printf("Nao foi encontrado o valor %i no vetor\n", k);
+  } else {
+    printf("O valor %i foi encontrado no vetor na posicao %i. Vetor[%i]: %i\n", k, resultado, k, resultado);
+  }
+
+  printf("\nPrecione enter para voltar ao menu");
+  systemPause();
 }
 
-/*
-Descrição: recebe um inteiro e retorna a soma de digitos
-Entradas: 1 inteiro
-Saída: 1 inteiro
-*/
-int somaDigitos(int a) {
-    int soma = 0;
-    if (a < 10) {
-        return a;
-    } else {
-        soma += somaDigitos(a / 10) + a % 10;
-        return soma;
-    }
+void questao2_6() {
+  // tamanho vetor = sizeof(vetor)/sizeof(vetor[0]);
+  int tamanho = 5, vetor[5] = {2, 6, 4, 6, 2};
+  // int tamanho = 5, vetor[tamanho];
+  // preencheVetor(vetor, tamanho);
+  printf("\nVetor gerado aleatoriamente: \n");
+  printaVetor(vetor, tamanho);
+
+  printf("Valor maximo do vetor: %i\n", maxVetor(vetor, tamanho));
+  printf("Valor minimo do vetor: %i\n", minVetor(vetor, tamanho));
+  printf("Valor da soma do vetor: %i\n", somaVetor(vetor, tamanho));
+  printf("Valor do produto do vetor: %i\n", multiplicaVetor(vetor, tamanho));
+  printf("Valor da media do vetor: %0.2f\n", mediaVetor(vetor, tamanho));
+
+  printf("\nPrecione enter para voltar ao menu.");
+  systemPause();
 }
 
-/*
-Descrição: recebe a razao(float), o primeiro termo (float) e o n-esimo termo (int)
-Entradas: 2 float e 1 int
-Saída: retorna o valor do termo na posição n em float
-*/
-float progressaoAritimetica(float razao, float primeiroTermo, int n) {
-    if (n <= 1) {
-        return primeiroTermo;
-    }
-    return razao * progressaoAritimetica(razao, primeiroTermo, --n);
+void questao7() {
 }
 
-int questao6() {
-    // preenche o vetor
-    // vetor = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-    int vetor[10];
-    printf("Digite 10 valores para serem colocados no vetor: ");
-    for (int i = 0; i <= 9; i++) {
-        scanf("%d", &vetor[i]);
-    }
-
-    // imprime o vetor na ordem contraria
-    for (int i = 9; i >= 0; i--) {
-        printf("%i ", vetor[i]);
-    }
-    return 0;
+void questao8() {
 }
 
-int questao7() {
-    // int vetor[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-    int vetor[10];
-    printf("Digite 10 numeros: ");
-
-    for (int i = 0; i <= 9; i++) {
-        scanf("%i", &vetor[i]);
-    }
-
-    for (int i = 0; i <= 9; i++) {
-        if (i == vetor[i]) {
-            printf("\nVetor[%i]: %i", i, vetor[i]);
-        }
-    }
+void questao9() {
 }
 
-int questao8() {
-    srand(time(NULL));
-    int vetor[15];
-    for (int i = 0; i <= 15; i++) {
-        vetor[i] = rand() % 11;  // numeros aleatorios entre 0 e 10
-    }
-
-    for (int i = 0; i <= 9; i++) {
-        printf("\nVetor[%i]: %i", i, vetor[i]);
-    }
-    return 0;
+void questao10() {
 }
 
-int questao9() {
-    int vetor[15], soma = 0, max = 18, min = 40;  // valores entre 18 e 40
-    float media;
-    srand(time(NULL));
-
-    for (int i = 0; i <= 15; i++) {
-        vetor[i] = rand() % 23 + 18;  // valores aleatorios entre 18 e 40
-        printf("\nVetor[%i]: %i", i, vetor[i]);
-
-        // soma dos valores para calculo da media
-        soma += vetor[i];
-
-        // pegar valor maximo
-        if (vetor[i] > max)
-            max = vetor[i];
-
-        // pegar valor minimo
-        if (vetor[i] < min)
-            min = vetor[i];
-    }
-    media = soma / 15.0;
-    printf("\nValor da media: %0.2f", media);
-    printf("\nValor maximo: %i", max);
-    printf("\nValor minimo: %i", min);
-
-    soma = 0;  // utilizada como contador
-    // for para validar quantas vezes a temperatura foi abaixo da media
-    for (int i = 0; i <= 15; i++) {
-        if (vetor[i] < media) {
-            soma++;
-        }
-    }
-
-    printf("\nQuantidade de vezes abaixo da media: %i", soma);
-    return 0;
-}
-
-int questao10() {
-    int vetor[10], i;
-    for (i = 0; i < 10; i++) {
-        if (i % 2 == 0) {
-            vetor[i] = 1;
-            printf("\nVetor[%i]: %i", i, vetor[i]);
-        } else {
-            vetor[i] = 0;
-            printf("\nVetor[%i]: %i", i, vetor[i]);
-        }
-    }
-
-    return 0;
-}
-
-int questao11() {
-    int vetor[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, n = 0;
-    while (n != -1) {
-        printf("Digite numeros entre 0 e 9 (digite -1 para sair): ");
-        scanf("%i", &n);
-
-        if (n >= 0 && n <= 9)
-            vetor[n]++;
-        else if (n != -1)
-            printf("Apenas numeros entre 0 e 9!\n");
-    }
-
-    // printa o vetor
-    for (int i = 0; i < 10; i++)
-        printf("\nVetor[%i]: %i", i, vetor[i]);
-
-    return 0;
-}
-
-int questao12() {
-    // declara variaveis
-    double vetor[100];
-    int i;
-
-    // preenche as duas primeiras posicoes da sequencia de fibonacci
-    vetor[0] = 1;
-    vetor[1] = 1;
-
-    // preenche o vetor com a seguencia de fibonacci
-    for (i = 2; i <= 100; i++) {
-        vetor[i] = vetor[i - 1] + vetor[i - 2];
-    }
-
-    // printa o vetor
-    for (int i = 0; i < 100; i++)
-        printf("\nVetor[%i]: %0.0f", i, vetor[i]);
-
-    return 0;
+void systemPause() {
+  if (PAUSE == 1)
+    system("pause");
+  else
+    system("read -p '' continuar");
 }
 
 /*
-Descrição: recebe um inteiro e retorna o resultado da função
-Entradas: 1 int
-Saída: 1 int
+Descrição: retorna a posição em que k foi encontrado ou -1
+Entradas: um vetor, seu tamanho e um valor a ser procurado 
+Saída: retorna a posicao que k foi encontrada ou -1
 */
-int func(int x) {
-    return (3 * pow(x, 3) + 2 * pow(x, 2) + x - 5);
+int procuraNoVetor(int vetor[], int k, int tamanhoVetor) {
+  if (vetor[tamanhoVetor - 1] == k || tamanhoVetor == 0) {
+    return tamanhoVetor - 1;
+  }
+  return procuraNoVetor(vetor, k, --tamanhoVetor);
 }
 
-int questao13() {
-    int vetor[10];
-    // preenche o vetor
-    for (int i = 0; i < 10; i++)
-        vetor[i] = func(i);
-
-    // printa o vetor
-    for (int i = 0; i < 10; i++)
-        printf("\nVetor[%i]: %i", i, vetor[i]);
-
-    return 0;
-}
-
-void preencheVetor(int *vetor, int n) {
-    for (int i = 0; i < n; i++) {
-        printf("Digite um numero: ");
-        scanf("%i", &vetor[i]);
+/*
+Descrição: retorna o maior elemento do vetor de inteiro
+Entradas: um vetor de inteiro e seu tamanho
+Saída: retorna o maior elemento do vetor
+*/
+int maxVetor(int vetor[], int tamanho) {
+  int max;
+  if (tamanho == 1) {
+    max = vetor[0];
+  } else {
+    max = maxVetor(vetor, tamanho - 1);
+    if (vetor[tamanho - 1] > max) {
+      max = vetor[tamanho - 1];
     }
+  }
+  return max;
 }
 
-// ordena vetor atraves do metodo bolha
-void ordenaVetor(int *vetor, int n) {
-    int aux;
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n; j++) {
-            if (vetor[j] > vetor[j + 1]) {
-                aux = vetor[j];
-                vetor[j] = vetor[j + 1];
-                vetor[j + 1] = aux;
-            }
-        }
+/*
+Descrição: retorna o menor elemento do vetor de inteiro
+Entradas: um vetor de inteiro e seu tamanho
+Saída: retorna o menor elemento do vetor
+*/
+int minVetor(int vetor[], int tamanho) {
+  int min;
+  if (tamanho == 1) {
+    min = vetor[0];
+  } else {
+    min = minVetor(vetor, tamanho - 1);
+    if (vetor[tamanho - 1] < min) {
+      min = vetor[tamanho - 1];
     }
+  }
+  return min;
 }
 
-void buscaSegundoMenor(int *vetor, int n, int *segundoMenor) {
-    *segundoMenor = vetor[n - 1];  // coloca o maior valor na variavel segundoMenor
-    for (int i = 1; i < n; i++) {
-        if (vetor[i] < *segundoMenor && vetor[i] != vetor[0]) {
-            *segundoMenor = vetor[i];
-        }
-    }
+/*
+Descrição: retorna a soma dos elementos de um vetor de inteiros
+Entradas: um vetor de inteiro e seu tamanho
+Saída: retorna a soma dos elementos
+*/
+int somaVetor(int vetor[], int tamanho) {
+  if (tamanho == 1) {
+    return vetor[tamanho - 1];
+  }
+  tamanho--;
+  return vetor[tamanho] + somaVetor(vetor, tamanho);
 }
 
-int questao14() {
-    // declara variaveis
-    int tamanhoVetor, segundoMenor;
+/*
+Descrição: retorna o produto dos elementos de um vetor de inteiros
+Entradas: um vetor de inteiro e seu tamanho
+Saída: retorna o produto dos elementos
+*/
+int multiplicaVetor(int vetor[], int tamanho) {
+  if (tamanho == 1) {
+    return vetor[tamanho - 1];
+  }
+  tamanho--;
+  return vetor[tamanho] * multiplicaVetor(vetor, tamanho);
+}
 
-    printf("Digite a quantidade de numeros: ");
-    scanf("%i", &tamanhoVetor);
-    if (tamanhoVetor <= 0) {
-        printf("\nValor invalido!");
-        return 0;
-    }
+/*
+Descrição: retorna a media dos elementos de um vetor de inteiros
+Entradas: um vetor de inteiro e seu tamanho
+Saída: retorna a media dos elementos
+*/
+float mediaVetor(int vetor[], int tamanho) {
+  return _mediaVetor(vetor, tamanho, 0, tamanho);
+}
 
-    // declara o vetor
-    int vetor[tamanhoVetor];
+/*
+Descrição: retorna a media dos elementos de um vetor de inteiros
+Entradas: um vetor de inteiro, seu tamanho e a soma inicial
+Saída: retorna a media dos elementos
+*/
+float _mediaVetor(int vetor[], int tamanho, int soma, int aux) {
+  if (tamanho == 0)
+    return (float)soma / (aux - 1);
 
-    // preenche o vetor
-    preencheVetor(vetor, tamanhoVetor);
+  soma += vetor[tamanho - 1];
+  return _mediaVetor(vetor, --tamanho, soma, aux);
+}
 
-    // ordena o vetor de forma crescente
-    ordenaVetor(vetor, tamanhoVetor);
+/*
+Descrição: recebe um vetor e preenche com valores aleatorios entre 0 e 10
+Entradas: ponteiro de vetor e seu tamanho
+Saída: retorna vetor por referencia
+*/
+void preencheVetor(int *vetor, int tamanho) {
+  // sizeof(vetor) / sizeof(vetor[0]);
+  printf("...Preenchendo vetor\n");
+  srand(time(NULL));
+  for (int i = 0; i < tamanho; i++) {
+    vetor[i] = rand() % 11;  // numeros aleatorios entre 0 e 10
+  }
+}
 
-    // busca o valor do segundo menor e armazena na variavel segundoMenor
-    buscaSegundoMenor(vetor, tamanhoVetor, &segundoMenor);
-
-    // printa o vetor
-    for (int i = 0; i < tamanhoVetor; i++)
-        printf("\nVetor[%i]: %i", i, vetor[i]);
-
-    printf("\nMenor: %i", vetor[0]);
-    printf("\nSegundo menor: %i", segundoMenor);
-
-    return 0;
+/*
+Descrição: recebe um vetor inteiro e printa seus valores
+Entradas: ponteiro de vetor e seu tamanho
+Saída: nao possui
+*/
+void printaVetor(int vetor[], int tamanho) {
+  for (int i = 0; i < tamanho; i++) {
+    printf("Vetor[%i]: %i  \n", i, vetor[i]);
+  }
+  printf("\n");
 }

@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-int ehPalindromo(char *);
-int _ehPalindromo(char *v, int i, int j);
+int ehPalindromoRecursivo(char *);
+int _ehPalindromoRecursivo(char *v, int i, int j);
 
 int main() {
   char v1[100];
@@ -12,13 +12,18 @@ int main() {
   ehPalindromo(v1);
 }
 
-int ehPalindromo(char *v) {
+/*
+Descrição: recebe uma string e verifica se eh palindromo atraves da chamada de funcao recursiva
+Entradas: recebe 1 strings (char[])
+Saída: printa na tela se eh palindromo ou nao
+*/
+int ehPalindromoRecursivo(char *v) {
   int i = 0;
   int j = strlen(v) - 1;
-  return _ehPalindromo(v, i, j);
+  return _ehPalindromoRecursivo(v, i, j);
 }
 
-int _ehPalindromo(char *v, int i, int j) {
+int _ehPalindromoRecursivo(char *v, int i, int j) {
   if (v[i] != v[j]) {
     printf("\nNao eh palindromo\n");
     return -1;
@@ -27,5 +32,5 @@ int _ehPalindromo(char *v, int i, int j) {
     return 1;
   }
 
-  return _ehPalindromo(v, ++i, --j);
+  return _ehPalindromoRecursivo(v, ++i, --j);
 }

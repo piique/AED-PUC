@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 
-void ordena(char[], char[], char[]);
+void ordenaEPrinta(char[], char[], char[]);
 
 int main() {
   char v1[100], v2[100], v3[100];
   printf("Digite 3 palavras a serem verificadas: ");
   scanf("%s %s %s", v1, v2, v3);
-  ordena(v1, v2, v3);
+  ordenaEPrinta(v1, v2, v3);
   fflush(stdin);
 }
 
-void ordena(char v1[], char v2[], char v3[]) {
+/*
+Descrição: recebe 3 strings e printa elas em ordem alfabetica
+Entradas: recebe 3 strings (char[])
+Saída: printa na tela as palavras em ordem alfabetica
+*/
+void ordenaEPrinta(char v1[], char v2[], char v3[]) {
   char nomes[3][100], aux[100];
   strcpy(nomes[0], v1);
   strcpy(nomes[1], v2);

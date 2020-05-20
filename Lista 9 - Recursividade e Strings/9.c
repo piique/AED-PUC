@@ -11,6 +11,11 @@ int main() {
   ehPalindromo(v1);
 }
 
+/*
+Descrição: recebe uma string e verifica se eh palindromo
+Entradas: recebe 1 strings (char[])
+Saída: printa na tela se eh palindromo ou nao
+*/
 void ehPalindromo(char *v) {
   int j = strlen(v) - 1;
   int i = 0;

@@ -95,7 +95,7 @@ float diferencaMaiorAcimaAbaixo(float matriz[][M], int n, int m) {
 
   printf("Maior valor acima : %0.0f", maiorValorAcima);
   printf("\nMaior valor abaixo : %0.0f\n", maiorValorAbaixo);
-  // printf("\nDiferenca entre maior valor acima e maior valor abaixo: %0.2f\n", maiorValorAcima / maiorValorAbaixo);
+  // printf("\nDiferenca entre maior valor acima e maior valor abaixo: %0.2f\n", maiorValorAcima - maiorValorAbaixo);
 
-  return maiorValorAcima / maiorValorAbaixo;
+  return maiorValorAcima - maiorValorAbaixo;
 }

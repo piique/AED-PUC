@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 2
-#define M 3
+#define N 3
+#define M 2
 #define maxAleatorio 99
 
 void preencheMatriz(float[][M], int, int, int opc);
@@ -59,7 +59,7 @@ Saída:
 */
 void printMatriz(float matriz[][M], int n, int m) {
   // sizeof(vetor) / sizeof(vetor[0]);
-  srand(time(NULL));
+
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
       printf("%0.0f ", matriz[i][j]);

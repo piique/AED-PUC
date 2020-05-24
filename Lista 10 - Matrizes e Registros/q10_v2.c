@@ -11,6 +11,7 @@ struct Jogada {
   int y;
 };
 void systemPause();
+void systemClear();
 int solicitaJogada(struct Jogada *lista);
 int validaPosicao(struct Jogada *lista, int, int, int);
 void printaTabuleiro(struct Jogada *lista);
@@ -19,21 +20,36 @@ int verificaDiagonais(int tabuleiro[][8], int x, int y);
 int validaVitoria(struct Jogada *lista, int tamanhoLista);
 
 int main() {
-  printf("\nBem vindo ao Problema das 8 Rainhas\n");
+  int opc = -1, count = 0;
+  while (opc != 0) {
+    systemClear();
+    printf("\n    Bem vindo ao Problema das 8 Rainhas\n");
+    struct Jogada lista[8];
 
-  struct Jogada lista[8];
+    printaTabuleiro(lista);
 
-  printaTabuleiro(lista);
+    int qtdJogadas = solicitaJogada(lista);
+    // preencheJogadaPronta(lista);
 
-  int qtdJogadas = solicitaJogada(lista);
-  // preencheJogadaPronta(lista);
+    printaTabuleiro(lista);
+    // printf("Lista[0]: x=%i y=%i", lista[0].x, lista[0].y);
+    if (validaVitoria(lista, qtdJogadas) == 0) {
+      printf("\n\n\n\n\tA BATALHA EH GRANDE MAS A DERROTA EH CERTA!\n\n\t\tVOCE PERDEU!!\n\n\n\n");
+    }
+    count++;
+    systemPause();
+    systemClear();
+    printf("Deseja continuar?\n 1 - Jogar Novamente\n 0 - Sair\n Opc: ");
+    scanf("%i", &opc);
+  }
 
-  printaTabuleiro(lista);
-  // printf("Lista[0]: x=%i y=%i", lista[0].x, lista[0].y);
-  if (validaVitoria(lista, qtdJogadas) == 0) {
-    printf("\n\n\n\n\tA BATALHA EH GRANDE MAS A DERROTA EH CERTA!\n\n\t\tVOCE PERDEU!!\n\n\n\n");
+  if (count > 1) {
+    printf("\n\nObrigado por jogar o jogo %i vezes. Volte sempre! :) \n\n", count);
+  } else {
+    printf("\n\nObrigado por jogar o jogo! Volte sempre! :) \n\n");
   }
   systemPause();
+
   return 0;
 }
 
@@ -65,12 +81,11 @@ int solicitaJogada(struct Jogada *lista) {
     lista[i].ordem = i;
     lista[i].x = x;
     lista[i].y = y;
+    systemClear();
     printaTabuleiro(lista);
     // if (validaVitoria(lista, qtdJogadas)) {
     //   printf("Jogada valida");
     // }
-
-    printf("Lista[%i]: x=%i y=%i\n", i, lista[0].x, lista[0].y);
   }
 
   return qtdJogadas;
@@ -88,17 +103,11 @@ int validaPosicao(struct Jogada *lista, int tamanhoLista, int x, int y) {
 void printaTabuleiro(struct Jogada *lista) {
   // tabuleiro de 8x8
 
-  if (PAUSE == 1) {
-    system("cls");
-  } else {
-    system("clear");
-  }
-
   int aux = 0;
-  printf("");
-  printf("Y ^\n  | ---------------------------------\n");
+  printf("    Y ^\n");
+  printf("      | ---------------------------------\n");
   for (int y = 8; y > 0; y--) {
-    printf("%i | ", y);
+    printf("    %i | ", y);
     for (int x = 1; x <= 8; x++) {
       for (int k = 0; k < 8; k++) {
         if (lista[k].x == x && lista[k].y == y) {
@@ -115,8 +124,8 @@ void printaTabuleiro(struct Jogada *lista) {
     printf("|\n");
     // printf("   --- --- --- --- --- --- --- --- \n");
   }
-  printf("    ------------------------------------- >\n");
-  printf("      1   2   3   4   5   6   7   8      X\n");
+  printf("        ------------------------------------- >\n");
+  printf("          1   2   3   4   5   6   7   8      X\n");
 }
 
 void preencheJogadaPronta(struct Jogada *lista) {
@@ -255,5 +264,12 @@ void systemPause() {
     system("pause");
   } else {
     system("read -p 'Precione enter para continuar' continuar");
+  }
+}
+void systemClear() {
+  if (PAUSE == 1) {
+    system("cls");
+  } else {
+    system("clear");
   }
 }

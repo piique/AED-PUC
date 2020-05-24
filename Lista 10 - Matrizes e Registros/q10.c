@@ -10,6 +10,7 @@ void solicitaJogada(struct Jogada *lista, int tamanhoLista);
 int validaPosicao(struct Jogada *lista, int, int, int);
 void printaTabuleiro(struct Jogada *lista);
 void preencheJogadaPronta(struct Jogada *lista);
+int verificaDiagonais(int tabuleiro[][8], int x, int y);
 
 void solicitaJogada(struct Jogada *lista, int tamanhoLista) {
   int x, y;
@@ -103,13 +104,11 @@ int validaVitoria(struct Jogada *lista, int tamanhoLista) {
 
   int validaLinha[8];   // quantidade de linhas possiveis
   int validaColuna[8];  // quantidade de colunas possiveis
-  // int validaDiagonal[26];  // 26 diagonais em uma matriz 8x8
-  int vetor[tamanhoLista];
 
-  // preenche vetores de validacao com 0 em todas as posicoes
+  // preenche vetores de validacao (com 0) e tabuleiro com 0 e 1 (1 quando Rainha)
   for (int i = 8; i > 0; i--) {
-    validaLinha[i] = 0;
-    validaColuna[i] = 0;
+    validaLinha[i - 1] = 0;
+    validaColuna[i - 1] = 0;
     for (int j = 1; j <= 8; j++) {
       tabuleiro[i - 1][j - 1] = 0;
     }
@@ -122,23 +121,24 @@ int validaVitoria(struct Jogada *lista, int tamanhoLista) {
     validaLinha[lista[k].y - 1]++;
   }
 
-  // valida os vetores de validacao
+  // valida os vetores de validacao (vertical e horizontal)
   for (int i = 0; i < 8; i++) {
-    printf("Valida Coluna[%i]: %i\n", i + 1, validaColuna[i]);
+    // printf("Valida Coluna[%i]: %i\n", i + 1, validaColuna[i]);
     if (validaColuna[i] > 1) {
       vitoria = 0;
     }
   }
   for (int i = 0; i < 8; i++) {
-    printf("Valida Linha[%i]: %i\n", i + 1, validaLinha[i]);
+    // printf("Valida Linha[%i]: %i\n", i + 1, validaLinha[i]);
     if (validaLinha[i] > 1) {
       vitoria = 0;
     }
   }
 
+  // valida as diagonais
   for (int i = 8; i >= 1; i--) {
     for (int j = 1; j <= 8; j++) {
-      if (tabuleiro[i - 1][j - 1]) {
+      if (tabuleiro[i - 1][j - 1] != 0) {
         // veridicaDiagonais retorna 1 se errado
         if (verificaDiagonais(tabuleiro, i - 1, j - 1)) {
           vitoria = 0;
@@ -152,6 +152,7 @@ int validaVitoria(struct Jogada *lista, int tamanhoLista) {
   return vitoria;
 }
 
+//verifica as 4 diagonais de uma determinada coordenada
 int verificaDiagonais(int tabuleiro[][8], int x, int y) {
   // recebe tabuleiro preenchido com 0 em posições vazias e com 1 nas rainhas
   // logica para verificar existencia de diagonal
@@ -160,46 +161,57 @@ int verificaDiagonais(int tabuleiro[][8], int x, int y) {
   int auxY = y;
 
   // verifica diagonal Noroeste
-  while (x + 1 < 9 && y + 1 > 0) {
-    if (tabuleiro[x - 1, y - 1]) {
+  x--;
+  y++;
+  while (x >= 0 && y < 8) {
+    if (tabuleiro[x][y]) {
       return 1;
     }
-    x++;
-    y--;
+    x--;
+    y++;
   }
 
-  x = auxX;
-  y = auxY;
   // verifica diagonal Nordeste
-  while (x + 1 > 0 && y + 1 > 0) {
-    if (tabuleiro[x - 1, y - 1]) {
-      return 1;
-    }
-    x--;
-    y--;
-  }
-
   x = auxX;
   y = auxY;
-  // verifica diagona Sudoeste
-  while (x + 1 < 9 && y + 1 < 9) {
-    if (tabuleiro[x - 1, y - 1]) {
+  x++;
+  y++;
+  while (x < 8 && y < 8) {
+    if (tabuleiro[x][y]) {
       return 1;
     }
     x++;
     y++;
   }
 
+  // verifica diagona Sudoeste
   x = auxX;
   y = auxY;
-  // verifica diagonal Sudeste
-  while (x + 1 > 0 && y + 1 < 9) {
-    if (tabuleiro[x - 1, y - 1]) {
+  x--;
+  y--;
+  while (x >= 0 && y >= 0) {
+    if (tabuleiro[x][y]) {
       return 1;
     }
     x--;
-    y++;
+    y--;
   }
+
+  // verifica diagonal Sudeste
+  x = auxX;
+  y = auxY;
+  x++;
+  y--;
+  while (x < 8 && y >= 0) {
+    if (tabuleiro[x][y]) {
+      return 1;
+    }
+    x++;
+    y--;
+  }
+
+  // retorna 0 se todas as 4 diagonais forem validas
+  return 0;
 }
 
 int main() {
@@ -219,8 +231,8 @@ int main() {
   */
   qtdJogadas = 2;
 
-  // solicitaJogada(lista, qtdJogadas);
-  preencheJogadaPronta(lista);
+  solicitaJogada(lista, qtdJogadas);
+  // preencheJogadaPronta(lista);
 
   printaTabuleiro(lista);
   // printf("Lista[0]: x=%i y=%i", lista[0].x, lista[0].y);

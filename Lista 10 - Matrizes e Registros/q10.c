@@ -1,4 +1,6 @@
+#include <locale.h>  // no prompt: chcp 65001 - para funcionar formatação
 #include <stdio.h>
+#include <stdlib.h>  // limpar console: system("cls");
 #ifdef WIN32
 #define PAUSE 1
 #else
@@ -21,14 +23,18 @@ int verificaDiagonais(int tabuleiro[][8], int x, int y);
 int validaVitoria(struct Jogada *lista, int tamanhoLista);
 
 int main() {
+  setlocale(LC_ALL, "Portuguese_Brasil");
+
   int opc = -1;
   struct Jogada lista[8];
+
+  printf("\n    Bem vindo ao Problema das 8 Rainhas\n");
+  printf("  O problema das 8 Rainha consiste em colocar 8 Rainhas em tabuleiro de xadrez de forma que nenhuma rainha ataque a outra.\n\n");
+  systemPause();
+
   while (opc != 0) {
     systemClear();
     limpaLista(lista);
-
-    printf("\n    Bem vindo ao Problema das 8 Rainhas\n");
-
     printaTabuleiro(lista);
 
     int qtdJogadas = solicitaJogada(lista);
@@ -55,10 +61,10 @@ int main() {
 int solicitaJogada(struct Jogada *lista) {
   // solicita quantidade de jogadas
   int x, y, qtdJogadas = -1;
-  printf("Qual a quantidade de jogadas desejadas(2 a 8): ");
+  printf("Quantidade de Rainhas que deseja colocar(2 a 8): ");
   scanf("%i", &qtdJogadas);
   while (qtdJogadas < 2 || qtdJogadas > 8) {
-    printf("Quantidade invalida, apenans valores de 2 a 8: ");
+    printf("Quantidade invalida, apenas valores de 2 a 8: ");
     scanf("%i", &qtdJogadas);
   }
 
@@ -72,7 +78,7 @@ int solicitaJogada(struct Jogada *lista) {
     }
 
     while (!validaPosicao(lista, qtdJogadas, x, y)) {
-      printf("Posicao ja preenchida! Digite outra: ");
+      printf("Posicao ja ocupada! Digite outra: ");
       scanf("%i %i", &x, &y);
     }
 
@@ -123,7 +129,7 @@ void printaTabuleiro(struct Jogada *lista) {
     // printf("   --- --- --- --- --- --- --- --- \n");
   }
   printf("        ------------------------------------- >\n");
-  printf("          1   2   3   4   5   6   7   8      X\n");
+  printf("          1   2   3   4   5   6   7   8      X\n\n\n");
 }
 
 void preencheJogadaPronta(struct Jogada *lista) {

@@ -1,54 +1,20 @@
 #include <stdio.h>
-#ifdef WIN32
-#define PAUSE 1
-#else
-#define PAUSE 0
-#endif
 
 struct Jogada {
   int ordem;
   int x;
   int y;
 };
-void systemPause();
-int solicitaJogada(struct Jogada *lista);
+
+void solicitaJogada(struct Jogada *lista, int tamanhoLista);
 int validaPosicao(struct Jogada *lista, int, int, int);
 void printaTabuleiro(struct Jogada *lista);
 void preencheJogadaPronta(struct Jogada *lista);
 int verificaDiagonais(int tabuleiro[][8], int x, int y);
-int validaVitoria(struct Jogada *lista, int tamanhoLista);
 
-int main() {
-  printf("\nBem vindo ao Problema das 8 Rainhas\n");
-
-  struct Jogada lista[8];
-
-  printaTabuleiro(lista);
-
-  int qtdJogadas = solicitaJogada(lista);
-  // preencheJogadaPronta(lista);
-
-  printaTabuleiro(lista);
-  // printf("Lista[0]: x=%i y=%i", lista[0].x, lista[0].y);
-  if (validaVitoria(lista, qtdJogadas) == 0) {
-    printf("\n\n\n\n\tA BATALHA EH GRANDE MAS A DERROTA EH CERTA!\n\n\t\tVOCE PERDEU!!\n\n\n\n");
-  }
-  systemPause();
-  return 0;
-}
-
-int solicitaJogada(struct Jogada *lista) {
-  // solicita quantidade de jogadas
-  int x, y, qtdJogadas = -1;
-
-  printf("Qual a quantidade de jogadas desejadas(2 a 8): ");
-  scanf("%i", &qtdJogadas);
-  while (qtdJogadas < 2 || qtdJogadas > 8) {
-    printf("Quantidade invalida, apenans valores de 2 a 8: ");
-    scanf("%i", &qtdJogadas);
-  }
-
-  for (int i = 0; i < qtdJogadas; i++) {
+void solicitaJogada(struct Jogada *lista, int tamanhoLista) {
+  int x, y;
+  for (int i = 0; i < tamanhoLista; i++) {
     printf("Digite a posicao da %iª rainha (x,y): ", i + 1);
     scanf("%i %i", &x, &y);
 
@@ -57,7 +23,7 @@ int solicitaJogada(struct Jogada *lista) {
       scanf("%i %i", &x, &y);
     }
 
-    while (!validaPosicao(lista, qtdJogadas, x, y)) {
+    while (!validaPosicao(lista, tamanhoLista, x, y)) {
       printf("Posicao ja preenchida! Digite outra: ");
       scanf("%i %i", &x, &y);
     }
@@ -66,14 +32,9 @@ int solicitaJogada(struct Jogada *lista) {
     lista[i].x = x;
     lista[i].y = y;
     printaTabuleiro(lista);
-    // if (validaVitoria(lista, qtdJogadas)) {
-    //   printf("Jogada valida");
-    // }
 
     printf("Lista[%i]: x=%i y=%i\n", i, lista[0].x, lista[0].y);
   }
-
-  return qtdJogadas;
 }
 
 int validaPosicao(struct Jogada *lista, int tamanhoLista, int x, int y) {
@@ -87,18 +48,10 @@ int validaPosicao(struct Jogada *lista, int tamanhoLista, int x, int y) {
 
 void printaTabuleiro(struct Jogada *lista) {
   // tabuleiro de 8x8
-
-  if (PAUSE == 1) {
-    system("cls");
-  } else {
-    system("clear");
-  }
-
   int aux = 0;
-  printf("");
-  printf("Y ^\n  | ---------------------------------\n");
+  printf("  ---------------------------------\n");
   for (int y = 8; y > 0; y--) {
-    printf("%i | ", y);
+    printf("%i ", y);
     for (int x = 1; x <= 8; x++) {
       for (int k = 0; k < 8; k++) {
         if (lista[k].x == x && lista[k].y == y) {
@@ -115,8 +68,8 @@ void printaTabuleiro(struct Jogada *lista) {
     printf("|\n");
     // printf("   --- --- --- --- --- --- --- --- \n");
   }
-  printf("    ------------------------------------- >\n");
-  printf("      1   2   3   4   5   6   7   8      X\n");
+  printf("  ---------------------------------\n");
+  printf("    1   2   3   4   5   6   7   8\n");
 }
 
 void preencheJogadaPronta(struct Jogada *lista) {
@@ -145,14 +98,14 @@ void preencheJogadaPronta(struct Jogada *lista) {
   lista[7].y = 1;
 }
 
-// retorna 1 se tabuleiro valido
 int validaVitoria(struct Jogada *lista, int tamanhoLista) {
+  int vitoria = 1;
   int tabuleiro[8][8];
 
   int validaLinha[8];   // quantidade de linhas possiveis
   int validaColuna[8];  // quantidade de colunas possiveis
 
-  // preenche vetores de validacao e tabuleiro com 0
+  // preenche vetores de validacao (com 0) e tabuleiro com 0 e 1 (1 quando Rainha)
   for (int i = 8; i > 0; i--) {
     validaLinha[i - 1] = 0;
     validaColuna[i - 1] = 0;
@@ -161,30 +114,42 @@ int validaVitoria(struct Jogada *lista, int tamanhoLista) {
     }
   }
 
-  // preenche os vetores de validacao em caso de ocorrencia e o tabuleiro com 1 quando rainha
+  // preenche os vetores de validacao em caso de ocorrencia e o tabuleiro
   for (int k = 0; k < tamanhoLista; k++) {
     tabuleiro[lista[k].x - 1][lista[k].y - 1] = 1;
     validaColuna[lista[k].x - 1]++;
     validaLinha[lista[k].y - 1]++;
   }
 
-  // valida as diagonais e os vetores de validacao (vertical e horizontal)
-  for (int i = 8; i >= 1; i--) {
-    if (validaColuna[i - 1] > 1)
-      return 0;
-
-    if (validaLinha[i - 1] > 1)
-      return 0;
-    // veridicaDiagonais retorna 1 se errado
-    for (int j = 1; j <= 8; j++)
-      if (tabuleiro[i - 1][j - 1] != 0)
-        if (verificaDiagonais(tabuleiro, i - 1, j - 1))
-          return 0;
+  // valida os vetores de validacao (vertical e horizontal)
+  for (int i = 0; i < 8; i++) {
+    // printf("Valida Coluna[%i]: %i\n", i + 1, validaColuna[i]);
+    if (validaColuna[i] > 1) {
+      vitoria = 0;
+    }
+  }
+  for (int i = 0; i < 8; i++) {
+    // printf("Valida Linha[%i]: %i\n", i + 1, validaLinha[i]);
+    if (validaLinha[i] > 1) {
+      vitoria = 0;
+    }
   }
 
-  printf("\n\n\tPARABENS!!! VC GANHOU!\n\n");
+  // valida as diagonais
+  for (int i = 8; i >= 1; i--) {
+    for (int j = 1; j <= 8; j++) {
+      if (tabuleiro[i - 1][j - 1] != 0) {
+        // veridicaDiagonais retorna 1 se errado
+        if (verificaDiagonais(tabuleiro, i - 1, j - 1)) {
+          vitoria = 0;
+        }
+      }
+    }
+  }
 
-  return 1;
+  printf("Retorno: %s\n", vitoria == 0 ? "perdeu" : "ganhou");
+
+  return vitoria;
 }
 
 //verifica as 4 diagonais de uma determinada coordenada
@@ -249,11 +214,29 @@ int verificaDiagonais(int tabuleiro[][8], int x, int y) {
   return 0;
 }
 
-void systemPause() {
-  if (PAUSE == 1) {
-    printf("Precione enter para continuar");
-    system("pause");
-  } else {
-    system("read -p 'Precione enter para continuar' continuar");
+int main() {
+  printf("\nBem vindo ao Problema das 8 Rainhas\n");
+
+  struct Jogada lista[8];
+  int qtdJogadas = -1;
+
+  // solicita quantidade de jogadas
+  /*
+  printf("Qual a quantidade de jogadas desejadas(2 a 8): ");
+  scanf("%i", &qtdJogadas);
+  while (qtdJogadas <= 2 || qtdJogadas > 8) {
+    printf("Quantidade invalida, apenans valores de 2 a 8: ");
+    scanf("%i", &qtdJogadas);
   }
+  */
+  qtdJogadas = 2;
+
+  solicitaJogada(lista, qtdJogadas);
+  // preencheJogadaPronta(lista);
+
+  printaTabuleiro(lista);
+  // printf("Lista[0]: x=%i y=%i", lista[0].x, lista[0].y);
+
+  validaVitoria(lista, qtdJogadas);
+  return 0;
 }

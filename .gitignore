@@ -1,12 +1,12 @@
+## create to exclude bin files that can be generate while testing
+# ignore all files into "Listas..."
+Lista*/*
+# unignore all files with extensions into "Listas..."
+!Lista*/*.*
+
 *.exe
 teste
 aula
 *.rar
 *.zip
 bin
-
-## create to exclude bin files that can be generate while testing
-# ignore all files into "Listas..."
-Lista*/*
-# unignore all files with extensions into "Listas..."
-! Lista*/*.*

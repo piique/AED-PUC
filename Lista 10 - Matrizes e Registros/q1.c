@@ -8,6 +8,7 @@
 
 void preencheMatriz(float[][M], int, int, int opc);
 void printMatriz(float[][M], int, int);
+void copiaMatrix(float matriz[][M], float matrizDestino[][M], int n, int m);
 
 int main() {
   int opc;

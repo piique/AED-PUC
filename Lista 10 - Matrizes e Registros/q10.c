@@ -43,7 +43,7 @@ int main() {
     printaTabuleiro(lista);
     // printf("Lista[0]: x=%i y=%i", lista[0].x, lista[0].y);
     if (validaVitoria(lista, qtdJogadas) == 0) {
-      printf("\n\n\n\n\tA BATALHA EH GRANDE MAS A DERROTA EH CERTA!\n\n\t\tVOCE PERDEU FILHA DA PUTA!!\n\n\n\n");
+      printf("\n\n\n\n\tA BATALHA EH GRANDE MAS A DERROTA EH CERTA!\n\n\t\tVOCE PERDEU, MAS NAO DESISTA, TENTE NOVAMENTE!!\n\n\n\n");
     }
 
     systemPause();
@@ -278,6 +278,7 @@ void systemPause() {
     system("read -p 'Precione enter para continuar' continuar");
   }
 }
+
 void systemClear() {
   if (PAUSE == 1) {
     system("cls");

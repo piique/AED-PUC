@@ -4,9 +4,15 @@ Lista*/*
 # unignore all files with extensions into "Listas..."
 !Lista*/*.*
 
-*.exe
+
+
 teste
+estudos
 aula
+prova
+
+
+*.exe
 *.rar
 *.zip
 bin

@@ -140,9 +140,9 @@ class Aluno {
     cout << "-------------------------------" << endl;
   }
 
-  void setNota(int codigoMateria, float nota) {
+  void setNota(int codigoDisciplina, float nota) {
     for (int i = 0; i < qtdDisciplinas; i++) {
-      if (disciplinas[i].getCodigo() == codigoMateria) {
+      if (disciplinas[i].getCodigo() == codigoDisciplina) {
         disciplinas[i].setNota(nota);
       }
     }
@@ -184,9 +184,9 @@ class Aluno {
   }
 
   // retorna a nota da materia recebida como parametro (codigo)
-  float getNotaMateria(int codigoMateria) {
+  float getNotaMateria(int codigoDisciplina) {
     for (int i = 0; i < qtdDisciplinas; i++) {
-      if (disciplinas[i].getCodigo() == codigoMateria) {
+      if (disciplinas[i].getCodigo() == codigoDisciplina) {
         return disciplinas[i].getNota();
       }
     }

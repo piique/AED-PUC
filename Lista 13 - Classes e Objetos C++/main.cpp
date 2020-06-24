@@ -54,7 +54,7 @@ class Disciplina {
 
   // construtor com sobrecarga
   Disciplina(int codigo, char nome[], float nota) {
-    this->codigo = 0;
+    this->codigo = codigo;
     this->nome = nome;
     this->nota = nota;
   }
@@ -266,6 +266,7 @@ int main() {
         break;
     }
   }
+
   return 0;
 }
 

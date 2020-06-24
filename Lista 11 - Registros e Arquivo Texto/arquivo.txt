@@ -1,0 +1,3 @@
+Matricula: 123	Nome: Pedro	Idade: 20	Telefone: 213412412	Renda: 231241.000000	Nota: 23.000000
+Matricula: 234	Nome: Ze	Idade: 27	Telefone: 124124241	Renda: 12312.000000	Nota: 18.000000
+Matricula: 345	Nome: Joao	Idade: 18	Telefone: 319554545	Renda: 431234.000000	Nota: 31.000000

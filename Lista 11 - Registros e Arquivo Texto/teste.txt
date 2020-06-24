@@ -1,0 +1,4 @@
+Matricula: 1	Nome: Maicon	Idade: 22	Telefone: 99999	Renda: 1039.000000	Nota: 78.000000
+Matricula: 2	Nome: Ana	Idade: 18	Telefone: 999999	Renda: 800.000000	Nota: 78.000000
+Matricula: 3	Nome: Paulo	Idade: 19	Telefone: 999999	Renda: 0.000000	Nota: 78.000000
+Matricula: 4	Nome: Joao	Idade: 18	Telefone: 99999	Renda: 0.000000	Nota: 78.000000

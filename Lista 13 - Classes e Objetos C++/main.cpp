@@ -113,7 +113,7 @@ class Aluno {
   }
 
   Aluno(int matricula, std::string nome, std::string email, Disciplina disciplina) {
-    this->matricula = 0;
+    this->matricula = matricula;
     this->nome = nome;
     this->email = email;
     this->qtdDisciplinas = 0;

@@ -315,8 +315,8 @@ void buscaAlunosEmArquivo(struct Aluno alunos[], int n, char nome_arquivo[]) {
   fp = fopen(nome_arquivo, "r");
 
   if (fp != NULL) {
+    fscanf(fp, "%i %i", &alunos[i].matricula);
     for (int i = 0; i < n; i++) {
-      fscanf(fp, "Matricula: %i", &alunos[i].matricula);
       fscanf(fp, "\tNome: %s", &alunos[i].nome);
       fscanf(fp, "\tIdade: %i", &alunos[i].idade);
       fscanf(fp, "\tTelefone: %s", &alunos[i].telefone);

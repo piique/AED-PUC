@@ -5,6 +5,48 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "CodeLens (Launch) - Distancia_Euclidiana",
+      "request": "launch",
+      "mainClass": "Distancia_Euclidiana",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Maior_e_Menor_Vetor",
+      "request": "launch",
+      "mainClass": "Maior_e_Menor_Vetor",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Maior_e_Menor_de_Tres",
+      "request": "launch",
+      "mainClass": "Maior_e_Menor_de_Tres",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Calculadora_Simples",
+      "request": "launch",
+      "mainClass": "Calculadora_Simples",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Par_e_Impar",
+      "request": "launch",
+      "mainClass": "Par_e_Impar",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
       "name": "gcc - Build and debug active file",
       "type": "cppdbg",
       "request": "launch",

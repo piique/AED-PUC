@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void) {
-  int n, aux, count = 0;
+  int n, count = 0;
   scanf("%i", &n);
   int v[n];
 

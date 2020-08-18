@@ -1,26 +1,20 @@
 #include <stdio.h>
 
 int main() {
-  int N = 1, MAIOR, MENOR;
-  int vetor[N];
-  scanf("%i", &N);
-  if (N > 0) {
-    for (int i = 0; i < N; i++) {
+  int n, menor, pos;
+  scanf("%i", &n);
+  int vetor[n];
+  if (n >= 1 && n <= 2000) {
+    for (int i = 0; i < n; i++) {
       scanf("%i", &vetor[i]);
-    }
-    MAIOR = vetor[0];
-    MENOR = vetor[0];
-    for (int i = 0; i < N; i++) {
-      if (MAIOR < vetor[i]) {
-        MAIOR = vetor[i];
-      }
-      if (MENOR > vetor[i]) {
-        MENOR = vetor[i];
+      if (vetor[i] < menor) {
+        menor = vetor[i];
+        pos = i;
       }
     }
-
-    printf("MAIOR = %i\n", MAIOR);
-    printf("MENOR = %i\n", MENOR);
+    printf("Menor valor: %i\n", menor);
+    printf("Posicao: %i", pos);
   }
+
   return 0;
 }

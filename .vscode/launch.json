@@ -6,6 +6,69 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - ExemploRAF01Escrita",
+      "request": "launch",
+      "mainClass": "ExemploRAF01Escrita",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ExemploMyIO",
+      "request": "launch",
+      "mainClass": "ExemploMyIO",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - q7",
+      "request": "launch",
+      "mainClass": "Trabalho_Pratico_1.q7",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - q6",
+      "request": "launch",
+      "mainClass": "Trabalho_Pratico_1.q6",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - q5",
+      "request": "launch",
+      "mainClass": "Trabalho_Pratico_1.q5",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - q4",
+      "request": "launch",
+      "mainClass": "Trabalho_Pratico_1.q4",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - q3",
+      "request": "launch",
+      "mainClass": "Trabalho_Pratico_1.q3",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - q1",
+      "request": "launch",
+      "mainClass": "Trabalho_Pratico_1.q1",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Main",
+      "request": "launch",
+      "mainClass": "Trabalho_Pratico_1.Main",
+      "projectName": "AED-PUC_f9ffcb3e"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - Distancia_Euclidiana",
       "request": "launch",
       "mainClass": "Distancia_Euclidiana",

@@ -2,17 +2,19 @@
 
 int main(void) {
   int n, count = 0;
-  scanf("%i", &n);
-  int v[n];
+  int v[2000];
 
+  // recebe quantidade de numeros que serao recebidos
+  scanf("%i", &n);
+
+  // preenche vetor
   for (int i = 0; i < n; i++) {
     scanf("%i", &v[i]);
   }
-  printaVetor(v, n);
-  ordenaVetor(v, n);
-  printf("Vetor ordenado: \n");
-  printaVetor(v, n);
 
+  ordenaVetor(v, n);
+
+  // for para realizar a contagem de numeros repetidos e printa-los
   for (int i = 0; i < n; i++) {
     count++;
     if (v[i] != v[i + 1]) {
@@ -23,6 +25,7 @@ int main(void) {
   return 0;
 }
 
+// realiza ordenação do vetor através do método bolha
 void ordenaVetor(int v[], int n) {
   int aux;
   for (int j = 1; j < n; j++) {
@@ -33,11 +36,5 @@ void ordenaVetor(int v[], int n) {
         v[i + 1] = aux;
       }
     }
-  }
-}
-
-void printaVetor(int v[], int n) {
-  for (int i = 0; i < n; i++) {
-    printf("%i ", v[i]);
   }
 }

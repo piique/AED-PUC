@@ -7,6 +7,7 @@ void zeraVetorChar(char v[], int n);
 void zeraVetorInt(int v[], int n);
 bool trabalharAnd(char v[], int variaveis[], int inicio, int final);
 bool logicaBooleana(char v[], int variaveis[], int inicio, int final);
+void trocaString(char str[], int inicio, int fim, char parteStr[]);
 bool not(int value);
 bool or (int v1, int v2);
 bool or3(int v1, int v2, int v3);
@@ -181,6 +182,38 @@ bool or (int v1, int v2) {
 bool or3(int v1, int v2, int v3) {
   return v1 || v2 || v3;
 }
+
+// recebe string, uma parte dela (inicio e fim) e uma parte de string para substituir no intenrvalo inicio - fim
+void trocaString(char str[], int inicio, int fim, char parteStr[]) {
+  int aux = 0;
+  char newStr[strlen(str) - (fim - inicio) + strlen(parteStr)];  // nova string
+
+  for (int i = 0; i < strlen(newStr); i++) {
+    if (i > inicio && i < fim) {
+      if (aux < strlen(parteStr)) {
+        newStr[i] = parteStr[aux];
+        aux++;
+      } else {
+        aux = fim + 1;
+      }
+    } else {
+      newStr[i] = str[aux];
+    }
+  }
+
+  for (int i = 0; i < strlen(newStr); i++) {
+    str[i] = newStr[i];
+  }
+  str[strlen(newStr)] = '\0';
+}
+
+// 4
+// 2
+
+// pedro henrique vilaca
+// pedro just
+
+// just
 
 // 2 0 0 and(not(A) , not(B))
 // 2 0 1 and(not(A) , not(B))

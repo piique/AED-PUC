@@ -1,15 +1,15 @@
 #include <stdio.h>
 
 void printaArray(int array[], int n);
-void insersaoMovimentacoes(int array[], int n);
-void insersaoComparacoes(int array[], int n);
-void insersaoDecrescente(int array[], int n);
+void insercaoMovimentacoes(int array[], int n);
+void insercaoComparacoes(int array[], int n);
+void insercaoDecrescente(int array[], int n);
 
 int main(void) {
   int array[18] = {12, 4, 8, 2, 14, 17, 6, 18, 10, 16, 15, 5, 13, 9, 1, 11, 7, 3};
 
-  insersaoMovimentacoes(array, 18);
-  // insersaoComparacoes(array, 18);
+  insercaoMovimentacoes(array, 18);
+  // insercaoComparacoes(array, 18);
 
   printaArray(array, 18);
   return 0;
@@ -24,8 +24,8 @@ void printaArray(int array[], int n) {
   printf("\n");
 }
 
-// metodo de ordenacao insersao para contar comparações enquanto realiza ordenação
-void insersaoMovimentacoes(int array[], int n) {
+// metodo de ordenacao insercao para contar comparações enquanto realiza ordenação
+void insercaoMovimentacoes(int array[], int n) {
   int qtdMovimentacoes = 0;
   for (int i = 1; i < n; i++) {
     int tmp = array[i];
@@ -48,8 +48,8 @@ void insersaoMovimentacoes(int array[], int n) {
   printf("\nQuantidade de movimentacoes: %i", qtdMovimentacoes);
 }
 
-// metodo de ordenacao insersao para contar comparações enquanto realiza ordenação
-void insersaoComparacoes(int array[], int n) {
+// metodo de ordenacao insercao para contar comparações enquanto realiza ordenação
+void insercaoComparacoes(int array[], int n) {
   int qtdComparacoes = 0;
   for (int i = 1; i < n; i++) {
     int tmp = array[i];
@@ -71,8 +71,8 @@ void insersaoComparacoes(int array[], int n) {
   printf("\nQuantidade de comparacoes: %i", qtdComparacoes);
 }
 
-// metodo de ordenacao insersao de forma decrescente utilizada para testes
-void insersaoDecrescente(int array[], int n) {
+// metodo de ordenacao insercao de forma decrescente utilizada para testes
+void insercaoDecrescente(int array[], int n) {
   for (int i = 1; i < n; i++) {
     int tmp = array[i];
     int j = i - 1;

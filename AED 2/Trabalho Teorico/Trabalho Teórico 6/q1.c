@@ -8,8 +8,8 @@ void insersaoDecrescente(int array[], int n);
 int main(void) {
   int array[18] = {12, 4, 8, 2, 14, 17, 6, 18, 10, 16, 15, 5, 13, 9, 1, 11, 7, 3};
 
-  // insersaoMovimentacoes(array, 18);
-  insersaoComparacoes(array, 18);
+  insersaoMovimentacoes(array, 18);
+  // insersaoComparacoes(array, 18);
 
   printaArray(array, 18);
   return 0;

@@ -36,7 +36,7 @@ int pesquisaBinaria(int array[], int item, int menor, int maior) {
   return pesquisaBinaria(array, item, menor, mid - 1);
 }
 
-// função de ordenacao insercao para contar comparações enquanto realiza ordenação
+// função de ordenacao por insercao
 void insercao(int array[], int n) {
   int index;
   for (int i = 1; i < n; i++) {

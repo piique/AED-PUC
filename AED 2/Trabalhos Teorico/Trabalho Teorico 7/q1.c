@@ -10,8 +10,8 @@ void insercaoPorCorComparacoes(int cor, int h, int array[], int n, int *comparac
 int main(void) {
   int array[18] = {12, 4, 8, 2, 14, 17, 6, 18, 10, 16, 15, 5, 13, 9, 1, 11, 7, 3};
 
-  shellsortComparacoes(array, 18);
-  // shellsortMovimentacoes(array, 18);
+  // shellsortComparacoes(array, 18);
+  shellsortMovimentacoes(array, 18);
 
   printaArray(array, 18);
   return 0;

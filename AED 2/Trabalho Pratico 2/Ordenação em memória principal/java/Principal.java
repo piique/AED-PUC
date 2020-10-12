@@ -23,9 +23,9 @@ class Principal {
     //  algoritmo = new Countingsort(n);
 
     //Geracao do conjunto a ser ordenado
-    //  algoritmo.aleatorio();
+    algoritmo.aleatorio();
     //  algoritmo.crescente();
-    algoritmo.decrescente();
+    //  algoritmo.decrescente();
 
     //Mostrar o conjunto a ser ordenado
     //algoritmo.mostrar();

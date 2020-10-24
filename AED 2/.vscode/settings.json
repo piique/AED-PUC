@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "random": "c",
+    "array": "c"
+  },
+  "java.format.settings.url": "eclipse-formatter.xml"
+}

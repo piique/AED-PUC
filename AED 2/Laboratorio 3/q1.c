@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-void shellsort(int *vet, int n);
 void bolha(int *v, int n);
 void bolhaDecrescente(int *v, int n);
 void substituiArrayOriginal(int *v, int n, int *vPar, int auxPar, int *vImpar, int auxImpar);

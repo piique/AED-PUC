@@ -8,10 +8,10 @@ int main(void) {
   char v[1000], aux;
 
   // rodar ate encontrar string FIM
-  scanf(" %[^\n]s", &v);
+  scanf(" %[^\n]s", v);
   while (v[0] != 'F' && v[1] != 'I' && v[2] != 'M') {
     criptografaString(v, 0, strlen(v));
-    scanf(" %[^\n]s", &v);
+    scanf(" %[^\n]s", v);
   }
 
   return 0;

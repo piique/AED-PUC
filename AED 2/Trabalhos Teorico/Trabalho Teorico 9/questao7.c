@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// calculadora que retorna valor atraves de ponteiro
 int *calculadora(int n1, int n2, int operador, int *resultado) {
   switch (operador) {
     case 1:

@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int _strlen(char *string) {
+int strlen(char *string) {
   int len = 0;
   while (*(string + len) != '\0') {
     len++;
@@ -35,25 +32,4 @@ char *strchr(char *string, int c) {
     }
   }
   return NULL;
-}
-
-int main() {
-  char *string1 = (char *)malloc(1000 * sizeof(char));
-  char *string2 = (char *)malloc(10 * sizeof(char));
-
-  *string2 = 'j';
-  *(string2 + 1) = 'o';
-  *(string2 + 2) = 't';
-  *(string2 + 3) = 'a';
-
-  scanf(" %[^\n]s\n", string1);
-
-  printf("String len: %i", _strlen(string1));
-  strcat(string1, string2);
-  printf("Concatenação: %s", string1);
-
-  free(string1);
-  free(string2);
-
-  return 0;
 }

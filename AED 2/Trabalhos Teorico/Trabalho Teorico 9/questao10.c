@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// definiçao do tipo Produto
 typedef struct {
   int codigo;
   char descricao[100];
@@ -84,8 +85,10 @@ int main() {
   printf("Digite a quantidade maxima de produtos no sistema: ");
   scanf("%i", &qtdTotalProdutos);
 
+  // alocaçao dinamica para quantidade de produtos no sistema
   Produto *vetor = malloc(qtdTotalProdutos * sizeof(Produto));
 
+  // menu
   do {
     printf("\n--------------Menu--------------\n");
     printf("1 - Cadastrar Produto\n");

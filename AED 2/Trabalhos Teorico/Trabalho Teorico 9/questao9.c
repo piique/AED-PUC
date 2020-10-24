@@ -3,20 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-int somaMatriz(int **matriz, int linha, int coluna) {
-  int soma = 0;
-
-  for (int i = 0; i < linha; i++) {
-    for (int j = 0; j < coluna; j++) {
-      printf("%d ", **(matriz + i) + j);
-      soma += *(*(matriz + i) + j);
-    }
-    printf("\n");
-  }
-
-  return soma;
-}
-
 int main() {
   int linha;   // linhas
   int coluna;  // colunas
@@ -43,9 +29,11 @@ int main() {
     for (int j = 0; j < coluna; j++)
       *(*(matriz + i) + j) = rand() % 10;
 
+  // deixando menor e maior com valor do primeiro elemento da matriz
   maior = **matriz;
   menor = **matriz;
 
+  // for para achar maior e menor elemento
   for (int i = 0; i < linha; i++) {
     for (int j = 0; j < coluna; j++) {
       if (maior < *(*(matriz + i) + j)) {

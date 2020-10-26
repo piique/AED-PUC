@@ -25,10 +25,35 @@ void cadastrar(Produto *vetor, int *qtdProdutos) {
   printf("Produto cadastrado!");
 }
 
+// editar produto
+void editar(Produto *vetor, int qtdProdutos) {
+  int codigo;
+
+  printf("\nDigite o produto que deseja editar: ");
+  scanf("%i", &codigo);
+
+  for (int i = 0; i < qtdProdutos; i++) {
+    if ((vetor + i)->codigo == codigo) {
+      printf("Digite a nova descrição do produto: ");
+      scanf("%s", (vetor + i)->descricao);
+
+      printf("Digite o novo valor do produto: ");
+      scanf("%f", &(vetor + i)->valor);
+      printf("\nProduto alterado!\n");
+      return;
+    }
+  }
+  printf("\nProduto nao encontrado!\n");
+}
+
 // excluir produto
 void excluir(Produto *vetor, int *qtdProdutos) {
   if (*qtdProdutos == 0) {
     printf("\nNão existe produto para ser excluido!\n");
+    return;
+  } else if (*qtdProdutos == 1) {
+    *qtdProdutos = *qtdProdutos - 1;
+    printf("\nUnico produto cadastrado foi excluido!\n");
     return;
   }
 
@@ -57,8 +82,10 @@ void excluir(Produto *vetor, int *qtdProdutos) {
       (vetor + i)->codigo = codigo;
       strcpy((vetor + i)->descricao, descricao);
       (vetor + i)->valor = valor;
+      printf("\nProduto excluido!\n");
     }
   }
+  printf("\nNenhum produto econtrado com o codigo %i!\n", codigo);
 }
 
 // exibe todos os produtos
@@ -79,14 +106,18 @@ void exibirTodos(Produto *vetor, int qtdCadastrados) {
 }
 
 int main() {
+  // declaração de variaveis
   int qtdTotalProdutos, qtdProdudos = 0, opc;
-  // int *x = (int *)malloc(coluna * sizeof(int));
 
+  // limpar buffer do teclado
+  fflush(stdin);
+
+  // input usuario
   printf("Digite a quantidade maxima de produtos no sistema: ");
   scanf("%i", &qtdTotalProdutos);
 
   // alocaçao dinamica para quantidade de produtos no sistema
-  Produto *vetor = malloc(qtdTotalProdutos * sizeof(Produto));
+  Produto *vetor = malloc(1000 * sizeof(Produto));
 
   // menu
   do {
@@ -109,7 +140,7 @@ int main() {
         }
         break;
       case 2:
-        excluir(vetor, &qtdProdudos);
+        editar(vetor, qtdProdudos);
         break;
       case 3:
         excluir(vetor, &qtdProdudos);
@@ -129,5 +160,6 @@ int main() {
 
   } while (opc != 0);
 
+  free(vetor);
   return 0;
 }

@@ -4,11 +4,12 @@
 // #include "pilha_dinamica.h"
 #include "pilha_estatica.h"
 
-// declaração de procedimentos
+// declaração de metodos
 void clonar(Pilha* original, Pilha* pilha_clonada);
 void concatenar(Pilha*, Pilha*, Pilha* pilha_concatenada);
 void inverter(Pilha*);
 void ordenar(Pilha*);
+void RetiraImpares(Pilha*);
 
 int main(void) {
   Pilha pilha;
@@ -42,6 +43,10 @@ int main(void) {
 
   ordenar(&pilha);
   printf("\n\nPilha original ordenada: ");
+  print_pilha(&pilha);
+
+  RetiraImpares(&pilha);
+  printf("\n\nPilha original sem numeros impares: ");
   print_pilha(&pilha);
 
   return 0;
@@ -145,4 +150,25 @@ void inverter(Pilha* pilha) {
 void ordenar(Pilha* pilha) {
   // realiza chamada do procedimento nos arquivos das pilhas
   sort_stack(pilha);
+}
+
+void RetiraImpares(Pilha* pilha) {
+  Pilha pilha_aux;
+  create_pilha(&pilha_aux);
+
+  // desempilha pilha e empilha em pilha aux apenas valores pares
+  char value = pop(pilha);
+  while (value != -1) {
+    if (value % 2 == 0) {
+      push(&pilha_aux, value);
+    }
+    value = pop(pilha);
+  }
+
+  // desempilha pilha aux e empilha em pilha original
+  value = pop(&pilha_aux);
+  while (value != -1) {
+    push(pilha, value);
+    value = pop(&pilha_aux);
+  }
 }

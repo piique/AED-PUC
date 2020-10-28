@@ -53,4 +53,5 @@
     120
   ],
   "editor.formatOnSave": true,
+  "c-cpp-compile-run.c-compiler": "/usr/bin/gcc"
 }

@@ -6,107 +6,9 @@
   "configurations": [
     {
       "type": "java",
-      "name": "CodeLens (Launch) - ExemploRAF01Escrita",
-      "request": "launch",
-      "mainClass": "ExemploRAF01Escrita",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - ExemploMyIO",
-      "request": "launch",
-      "mainClass": "ExemploMyIO",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - q7",
-      "request": "launch",
-      "mainClass": "Trabalho_Pratico_1.q7",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - q6",
-      "request": "launch",
-      "mainClass": "Trabalho_Pratico_1.q6",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - q5",
-      "request": "launch",
-      "mainClass": "Trabalho_Pratico_1.q5",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - q4",
-      "request": "launch",
-      "mainClass": "Trabalho_Pratico_1.q4",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
       "name": "CodeLens (Launch) - q3",
       "request": "launch",
-      "mainClass": "Trabalho_Pratico_1.q3",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - q1",
-      "request": "launch",
-      "mainClass": "Trabalho_Pratico_1.q1",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Main",
-      "request": "launch",
-      "mainClass": "Trabalho_Pratico_1.Main",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Distancia_Euclidiana",
-      "request": "launch",
-      "mainClass": "Distancia_Euclidiana",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Maior_e_Menor_Vetor",
-      "request": "launch",
-      "mainClass": "Maior_e_Menor_Vetor",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Maior_e_Menor_de_Tres",
-      "request": "launch",
-      "mainClass": "Maior_e_Menor_de_Tres",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Calculadora_Simples",
-      "request": "launch",
-      "mainClass": "Calculadora_Simples",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Par_e_Impar",
-      "request": "launch",
-      "mainClass": "Par_e_Impar",
-      "projectName": "AED-PUC_f9ffcb3e"
-    },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Main",
-      "request": "launch",
-      "mainClass": "Main",
+      "mainClass": "q3",
       "projectName": "AED-PUC_f9ffcb3e"
     },
     {
@@ -149,6 +51,27 @@
         }
       ],
       "preLaunchTask": "gcc build file group",
+      "miDebuggerPath": "/usr/bin/gdb"
+    },
+    {
+      "name": "gcc debugg c file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "C/C++: gcc-9 build active file",
       "miDebuggerPath": "/usr/bin/gdb"
     }
   ]

@@ -84,6 +84,3 @@ void sort_stack(Pilha *p) {
 bool is_empty(Pilha *p) {
   return p->tam == 0;
 }
-
-//==================================================
-// #endif  // PILHA_H_INCLUDED

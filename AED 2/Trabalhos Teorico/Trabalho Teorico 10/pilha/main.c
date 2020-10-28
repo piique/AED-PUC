@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 
 // #include "pilha_dinamica.h"
@@ -10,6 +11,7 @@ void concatenar(Pilha*, Pilha*, Pilha* pilha_concatenada);
 void inverter(Pilha*);
 void ordenar(Pilha*);
 void RetiraImpares(Pilha*);
+void verificaParenteses();
 
 int main(void) {
   Pilha pilha;
@@ -48,6 +50,8 @@ int main(void) {
   RetiraImpares(&pilha);
   printf("\n\nPilha original sem numeros impares: ");
   print_pilha(&pilha);
+
+  verificaParenteses();
 
   return 0;
 }
@@ -152,12 +156,13 @@ void ordenar(Pilha* pilha) {
   sort_stack(pilha);
 }
 
+// procedimento para retirar elementos pares de uma pilha (também pode ser utilizado com dado int)
 void RetiraImpares(Pilha* pilha) {
   Pilha pilha_aux;
   create_pilha(&pilha_aux);
 
   // desempilha pilha e empilha em pilha aux apenas valores pares
-  char value = pop(pilha);
+  int value = pop(pilha);
   while (value != -1) {
     if (value % 2 == 0) {
       push(&pilha_aux, value);
@@ -170,5 +175,33 @@ void RetiraImpares(Pilha* pilha) {
   while (value != -1) {
     push(pilha, value);
     value = pop(&pilha_aux);
+  }
+}
+
+void verificaParenteses() {
+  char string[100];
+  Pilha pilha;
+  create_pilha(&pilha);
+
+  printf("\n\nVALIDADOR PARENTESES\n");
+  printf("Digite uma expressao: ");
+  scanf("%s", string);
+
+  int len = strlen(string);
+
+  for (int i = 0; i < len; i++) {
+    if (string[i] == '(') {
+      push(&pilha, string[i]);
+    } else if (string[i] == ')') {
+      if (pop(&pilha) == -1) {
+        printf("\nExpressão Matemática Incorreta\n");
+        return;
+      }
+    }
+  }
+  if (is_empty(&pilha)) {
+    printf("\nExpressão Matemática Correta\n");
+  } else {
+    printf("\nExpressão Matemática Incorreta\n");
   }
 }

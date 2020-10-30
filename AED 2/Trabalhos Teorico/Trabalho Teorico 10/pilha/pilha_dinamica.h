@@ -40,7 +40,7 @@ bool push(Pilha *p, char dado) {
 }
 
 // função para desempilhar elemento do topo
-int pop(Pilha *p) {
+char pop(Pilha *p) {
   if (p->tam == 0) {
     // printf("\nPilha Vazia!\n");
     return -1;

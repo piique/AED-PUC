@@ -1,23 +1,9 @@
 #include <stdio.h>
 
-// #include "pilha_estatica.h"
-#include "pilha_dinamica.h"
+#include "pilha_estatica.h"
+// #include "pilha_dinamica.h"
 
-/*
-Alguns editores de texto permitem que algum caractere funcione como um "cancela-caractere", cujo efeito é o de cancelar o caractere anterior na linha que está sendo editada. Por exemplo, se '#' é o cancela-caractere, então a sequência de caracteres PEM##UB#C corresponde à sequência PUC. Outro comando encontrado em editores de texto é o "cancela-linha", cujo efeito é o de cancelar todos os caracteres anteriores na linha que está sendo editada. Neste exemplo vamos considerar '/' como o caractere cancela-linha. Finalmente, outro comando encontrado em editores de texto é o "salta-linha", cujo efeito é o de causar a impressão dos caracteres que pertencem à linha que está sendo editada, iniciando uma nova linha de impressão a partir do caractere imediatamente seguinte ao caractere salta-linha. Por exemplo, se `@' é o salta-linha, então a sequência de caracteres ICEI@PUCMINAS.@ corresponde às duas linhas abaixo:
-
-ICEI
-
-PUCMINAS.
-
-Implemente um Editor de Texto (ET) que aceite os três comandos descritos acima. O ET deverá ler um caractere de cada vez do texto de entrada e produzir a impressão linha a linha, cada linha contendo no máximo 70 caracteres de impressão.
-
-A seguir é sugerido um texto para testar o programa ET, cujas características permitem exercitar todas as partes importantes do programa.
-
-Este et# um teste para o ET, o extraterrestre em C.@Acabamos de testar a capacidade de o ET saltar de linha, utilizando seus poderes extras (cuidado, pois agora vamos estourar a capacidade máxima da linha de impressão, que é de 70 caracteres.)@O k#cut#rso dh#e Estruturas de Dados II et# h#um cuu#rsh#o #x# x?@!#?!#+.@ Como et# bom n#nt#ao### r#ess#tt#ar mb#aa#triz#cull#ado nn#x#ele!/ Sera que este funciona/// O sinal? não### deve ficar! ~
-*/
-
-// declaraçao de proceimentos
+// declaraçao de procedimentos
 void inverter_pilha(Pilha* pilha);
 void print_linha(Pilha* linha);
 void iniciaLinha(char* letra);

@@ -5,6 +5,7 @@
 
 #define MAX 10
 
+// definição do tipo Carro
 typedef struct Carro {
   int manobras;
   char placa[10];
@@ -15,6 +16,56 @@ typedef struct Pilha {
   Carro dados[MAX];
   int topo;
 } Pilha;
+
+// declaração de funções e procedimentos
+void create_pilha(Pilha *p);
+bool push(Pilha *p, char *placa, int manobras);
+Carro *pop(Pilha *p);
+void print_estacionamento(Pilha *p);
+bool buscar_carro(Pilha *p, char *placa);
+void retirar_carro(Pilha *p, char *placa);
+
+int main() {
+  Pilha estacionamento;
+  char ordem, placa[10];
+
+  create_pilha(&estacionamento);
+
+  printf("Para utilização do programa siga as instruções abaixo (comandos separados por espaco): \n");
+  printf("Entrada de carro: E + placa do carro\n");
+  printf("Saida de carro: S + placa do carro\n");
+  printf("Mostrar estacionamento: M + 'MOSTRAR'\n");
+  printf("Sair do programa: Q + 'SAIR'\n");
+  printf("Digite a opcao: ");
+  scanf("%c %s", &ordem, placa);
+  fflush(stdin);
+
+  while (ordem != 'Q') {
+    switch (ordem) {
+      case 'E':
+        if (push(&estacionamento, placa, 0)) {
+          printf("\nCarro de placa %s estacionado!\n", placa);
+        } else {
+          printf("\nNao foi possivel estacionar carro! Estacionamento lotado.\n");
+        }
+        break;
+      case 'S':
+        retirar_carro(&estacionamento, placa);
+        break;
+      case 'M':
+        print_estacionamento(&estacionamento);
+        break;
+
+      default:
+        printf("\nSaindo do programa!\n");
+        return 0;
+        break;
+    }
+    printf("\nDigite a opcao: ");
+    scanf("\n%c %s", &ordem, placa);
+    fflush(stdin);
+  }
+}
 
 // funçao para criar pilha
 void create_pilha(Pilha *p) {
@@ -47,7 +98,7 @@ Carro *pop(Pilha *p) {
 }
 
 // procedimento para printar carros no estacionamento
-void print_pilha(Pilha *p) {
+void print_estacionamento(Pilha *p) {
   if (p->topo == 0) {
     printf("\nNenhum carro no estacionamento!\n");
     return;
@@ -98,53 +149,5 @@ void retirar_carro(Pilha *p, char *placa) {
   for (int i = aux.topo - 1; i >= 0; i--) {
     carro = *pop(&aux);
     push(p, carro.placa, carro.manobras);
-  }
-}
-
-// função para verificar se pilha está vazia
-bool is_empty(Pilha *p) {
-  return p->topo == 0;
-}
-
-int main() {
-  Pilha estacionamento;
-  char ordem, placa[10];
-  int posicao_carro;
-
-  create_pilha(&estacionamento);
-
-  printf("Para utilização do programa siga as instruções abaixo (comandos separados por espaco): \n");
-  printf("Entrada de carro: E + placa do carro\n");
-  printf("Saida de carro: S + placa do carro\n");
-  printf("Mostrar estacionamento: M + 'MOSTRAR'\n");
-  printf("Sair do programa: Q + 'SAIR'\n");
-  printf("Digite a opcao: ");
-  scanf("%c %s", &ordem, placa);
-  fflush(stdin);
-
-  while (ordem != 'Q') {
-    switch (ordem) {
-      case 'E':
-        if (push(&estacionamento, placa, 0)) {
-          printf("\nCarro de placa %s estacionado!\n", placa);
-        } else {
-          printf("\nNao foi possivel estacionar carro! Estacionamento lotado.\n");
-        }
-        break;
-      case 'S':
-        retirar_carro(&estacionamento, placa);
-        break;
-      case 'M':
-        print_pilha(&estacionamento);
-        break;
-
-      default:
-        printf("\nSaindo do programa!\n");
-        return 0;
-        break;
-    }
-    printf("Digite a opcao: ");
-    scanf("\n%c %s", &ordem, placa);
-    fflush(stdin);
   }
 }

@@ -66,6 +66,15 @@ void print_pilha(Pilha *p) {
   }
 }
 
+// procedimento para printar conteudo da pilha sem espaços
+void print_pilha_clean(Pilha *p) {
+  Celula *tmp = p->topo;
+  while (tmp != NULL) {
+    printf("%c", tmp->dado);
+    tmp = tmp->prox;
+  }
+}
+
 // procedimento para ordernar pilha
 void sort_stack(Pilha *p) {
   for (int i = 0; i < p->tam - 1; i++) {

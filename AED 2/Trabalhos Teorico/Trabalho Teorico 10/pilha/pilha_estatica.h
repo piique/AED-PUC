@@ -1,6 +1,3 @@
-// #ifndef PILHA1_H_INCLUDED
-// #define PILHA1_H_INCLUDED
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,6 +42,12 @@ void print_pilha(Pilha *p) {
   printf("\nTamanho: %d\n", p->topo);
   for (int i = p->topo - 1; i >= 0; i--)
     printf("%c ", p->dados[i]);
+}
+
+// procedimento para printar conteudo da pilha sem espaços e tamanho
+void print_pilha_clean(Pilha *p) {
+  for (int i = p->topo - 1; i >= 0; i--)
+    printf("%c", p->dados[i]);
 }
 
 // procedimento para ordernar pilha

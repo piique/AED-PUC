@@ -2,8 +2,8 @@
 #include <string.h>
 #include <time.h>
 
-// #include "pilha_dinamica.h"
-#include "pilha_estatica.h"
+#include "pilha_dinamica.h"
+// #include "pilha_estatica.h"
 
 // declaração de metodos
 void clonar(Pilha* original, Pilha* pilha_clonada);
@@ -14,15 +14,15 @@ void RetiraImpares(Pilha*);
 void verificaParenteses();
 
 int main(void) {
+  // instanciando pilhas
   Pilha pilha;
-
   Pilha pilha_clonada;
-
   Pilha pilha_concatenada;
 
+  // criando pilha principal
   create_pilha(&pilha);
 
-  // preenche pilha com letras aleatorias
+  // preenche pilha principal com letras aleatorias
   srand(time(NULL));
   for (int i = 0; i < 10; i++) {
     push(&pilha, 65 + (rand() % (91 - 65)));  // letras maiusculas aleatorias 65 a 90
@@ -178,6 +178,7 @@ void RetiraImpares(Pilha* pilha) {
   }
 }
 
+// procedimento para validar parenteses de uma expressão matemática
 void verificaParenteses() {
   char string[100];
   Pilha pilha;

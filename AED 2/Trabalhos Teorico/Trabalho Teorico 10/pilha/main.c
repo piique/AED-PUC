@@ -51,8 +51,6 @@ int main(void) {
   printf("\n\nPilha original sem numeros impares: ");
   print_pilha(&pilha);
 
-  verificaParenteses();
-
   return 0;
 }
 

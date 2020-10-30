@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "pilha_dinamica.h"
 // #include "pilha_estatica.h"
@@ -18,7 +19,7 @@ void verificaParenteses() {
   Pilha pilha;
   create_pilha(&pilha);
 
-  printf("\n\nVALIDADOR PARENTESES\n");
+  printf("\nVALIDADOR PARENTESES\n");
   printf("Digite uma expressao: ");
   scanf("%s", string);
 

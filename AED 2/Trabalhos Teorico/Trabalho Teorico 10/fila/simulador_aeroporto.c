@@ -34,9 +34,9 @@ int main(void) {
       case 1:
         paux = novo_aviao();
         if (enfila(&fila, paux)) {
-          printf("\nNova pessoa entrou na fila!\n");
+          printf("\nNovo Aviao entrou na fila!\n");
         } else {
-          printf("\nErro. Nenhuma pessoa entrou na fila.\n");
+          printf("\nErro. Nenhum aviao entrou na fila.\n");
         }
         break;
       case 2:

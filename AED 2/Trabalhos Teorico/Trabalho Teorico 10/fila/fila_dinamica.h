@@ -84,6 +84,17 @@ void print_fila(Fila *f) {
   }
 }
 
+// função para printar processos (ultima atividade fila)
+void print_processos(Fila *f) {
+  Celula *tmp = f->inicio->prox;
+
+  printf("\nQuantidade de processos: %d\n", f->tam);
+  while (tmp != NULL) {
+    printf("ID: %i ; NOME: %s ; TEMPO: %i ;\n", tmp->dado.id, tmp->dado.nome, tmp->dado.idade);
+    tmp = tmp->prox;
+  }
+}
+
 // função para desenfilar elemento e retornar ele
 Pessoa desenfila(Fila *f) {
   if (f->tam == 0) {

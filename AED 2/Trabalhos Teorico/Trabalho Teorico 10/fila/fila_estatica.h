@@ -82,6 +82,16 @@ void print_fila(Fila *f) {
   }
 }
 
+// função para printar processos
+void print_processos(Fila *f) {
+  int pos = (f->inicio + 1) % MAX;
+
+  for (int i = 0; i < f->tam; i++) {
+    printf("ID: %i ; NOME: %s ; TEMPO: %i ;\n", f->dados[pos].id, f->dados[pos].nome, f->dados[pos].idade);
+    pos = (pos + 1) % MAX;
+  }
+}
+
 // função para desenfilar elemento e retornar ele
 Pessoa desenfila(Fila *f) {
   if (f->tam == 0) {

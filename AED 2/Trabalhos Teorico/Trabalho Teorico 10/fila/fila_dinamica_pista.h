@@ -22,10 +22,12 @@ typedef struct Fila {
   int tam;
 } Fila;
 
+// printa avião
 void print_aviao(Aviao p) {
   printf("ID: %d, NOME: %s, COMBUSTIVEL: %0.2f\n", p.id, p.nome, p.combustivel);
 }
 
+// funçao para receber novo avião do usuasio
 Aviao novo_aviao() {
   Aviao p;
 
@@ -39,6 +41,7 @@ Aviao novo_aviao() {
   return p;
 }
 
+// funçao para retornar aviao invalido
 Aviao invalida_aviao() {
   Aviao p;
 
@@ -49,7 +52,7 @@ Aviao invalida_aviao() {
   return p;
 }
 
-// cria fila
+// procedimento para cria fila
 void create_fila(Fila *f) {
   Celula *nova = (Celula *)malloc(sizeof(Celula));
   nova->prox = NULL;

@@ -18,6 +18,7 @@ int menu() {
   return opcao;
 }
 
+// funçao para receber novo processo do usuario e retornar processo
 Pessoa novo_processo() {
   Pessoa p;
 
@@ -31,6 +32,7 @@ Pessoa novo_processo() {
   return p;
 }
 
+// retira processo da filha
 void retira_processo(Fila *fila) {
   Pessoa processo;
   int pior;

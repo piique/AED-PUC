@@ -7,10 +7,12 @@ typedef struct Pessoa {
   int idade;
 } Pessoa;
 
+// procedimento para printar pessoa
 void print_pessoa(Pessoa p) {
   printf("%d, %s, %d\n", p.id, p.nome, p.idade);
 }
 
+// funçao para receber nova pessoa do usuario e retornar Pessoa
 Pessoa nova_pessoa() {
   Pessoa p;
 
@@ -24,6 +26,7 @@ Pessoa nova_pessoa() {
   return p;
 }
 
+// função para retornar pessoa invalida
 Pessoa invalida_pessoa() {
   Pessoa p;
 

@@ -3,7 +3,6 @@
 
 // #include "lista_estatica.h"
 #include "lista_dinamica.h"
-// #include "lista_dupla.h"
 #include "pessoa.h"
 
 int menu() {

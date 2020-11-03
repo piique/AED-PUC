@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "pilha_estatica.h"
-// #include "pilha_dinamica.h"
+#include "pilha_dinamica.h"
+// #include "pilha_estatica.h"
 
 // declaraçao de procedimentos
 void inverter_pilha(Pilha* pilha);

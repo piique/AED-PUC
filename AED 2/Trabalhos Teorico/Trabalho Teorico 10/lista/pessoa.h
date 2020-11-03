@@ -10,11 +10,13 @@ typedef struct Pessoa {
   int idade;
 } Pessoa;
 
+// printa pessoa
 void print_pessoa(Pessoa p) {
   printf("codigo: %d, nome: %s, idade: %d\n",
          p.codigo, p.nome, p.idade);
 }
 
+// função para receber pessoa do usuario e retornar Pessoa
 Pessoa novo_pessoa() {
   Pessoa p;
   sprintf(p.nome, "Pessoa %d", p.codigo);

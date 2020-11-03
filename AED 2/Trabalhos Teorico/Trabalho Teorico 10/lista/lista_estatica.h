@@ -17,12 +17,14 @@ typedef struct Lista {
   int qtd;
 } Lista;
 
+// procedimento para inicializar lista
 void create_lista(Lista *l) {
   l->MAX = QTD_MAX;
   l->dados = (Pessoa *)malloc(QTD_MAX * sizeof(Pessoa));
   l->qtd = 0;
 }
 
+// função para adicionar novo elemento na lista
 bool add_lista(Lista *l, Pessoa p) {
   if (l->qtd == l->MAX) {
     printf("\nLista cheia!\n");
@@ -36,11 +38,13 @@ bool add_lista(Lista *l, Pessoa p) {
   return true;
 }
 
+// procedimento para printar conteudo da lista
 void print_lista(Lista *l) {
   for (int i = 0; i < l->qtd; i++)
     print_pessoa(l->dados[i]);
 }
 
+// função para atualizar dados de um elemento da lista
 bool update_lista(Lista *l, Pessoa p) {
   if (p.codigo <= 0 || p.codigo > l->qtd) {
     printf("Pessoa nao encontrada na lista");
@@ -51,6 +55,7 @@ bool update_lista(Lista *l, Pessoa p) {
   return true;
 }
 
+// função para deletar elemento da lista pelo codigo
 bool delete_lista(Lista *l, int codigo) {
   if (codigo <= 0 || codigo > l->qtd) {
     printf("Pessoa nao encontrada na lista");
@@ -66,6 +71,7 @@ bool delete_lista(Lista *l, int codigo) {
   return true;
 }
 
+// procedimento para clonar uma lista em outra
 void clonar(Lista *l, Lista *clonada) {
   create_lista(clonada);
   Pessoa pessoa;
@@ -76,6 +82,7 @@ void clonar(Lista *l, Lista *clonada) {
   }
 }
 
+// procedimento para concatenar duas listas em uma terceira
 void concatenar(Lista *l, Lista *l2, Lista *concatenada) {
   create_lista(concatenada);
   Pessoa pessoa;
@@ -90,6 +97,7 @@ void concatenar(Lista *l, Lista *l2, Lista *concatenada) {
   }
 }
 
+// procedimento para inverter elementos da lista
 void inverter(Lista *l) {
   Lista clone;
 
@@ -103,6 +111,7 @@ void inverter(Lista *l) {
   }
 }
 
+// adiciona novo elemento na lista em sua posição já ordenada
 void add_lista_ordenado(Lista *l, Pessoa p) {
   if (l->qtd == l->MAX) {
     printf("\nLista cheia!\n");
@@ -132,6 +141,7 @@ void add_lista_ordenado(Lista *l, Pessoa p) {
   return;
 }
 
+// função para pegar maior pessoa da lista
 Pessoa maior(Lista *l) {
   Pessoa maiorPessoa = l->dados[0];
   int maiorIdade = maiorPessoa.idade;
@@ -146,6 +156,7 @@ Pessoa maior(Lista *l) {
   return maiorPessoa;
 }
 
+// função para pesquisar e retornar codigo caso exista ou -1
 int pesquisar(Lista *l, char *nome) {
   for (int i = 1; i < l->qtd; i++) {
     if (strcmp(l->dados[i].nome, nome) == 0) {
@@ -156,17 +167,13 @@ int pesquisar(Lista *l, char *nome) {
   return -1;
 }
 
-// void swap(Pessoa *i, Pessoa *j) {
-//   Pessoa temp = *i;
-//   *i = *j;
-//   *j = temp;
-// }
-
+// metodo para ordenar por ordem alfabetica
 void ordena_alfabetica(Lista *l) {
   char tipo[10] = "nome";
   quicksort(l->dados, l->qtd, tipo);
 }
 
+// metodo para ordenar através do codigo
 void ordena_codigo(Lista *l) {
   char tipo[10] = "codigo";
   quicksort(l->dados, l->qtd, tipo);

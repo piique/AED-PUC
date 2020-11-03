@@ -11,11 +11,13 @@ typedef struct Pagina {
   char url[100];
 } Pagina;
 
+// procedimento para printar Pagina
 void print_pagina(Pagina p) {
   printf("codigo: %d, nome: %s, url: %s\n",
          p.codigo, p.nome, p.url);
 }
 
+// função para pegar do usuário nova Pagina
 Pagina novo_pagina() {
   Pagina p;
   sprintf(p.nome, "Pagina %d", p.codigo);
@@ -39,6 +41,7 @@ typedef struct Lista {
   int qtd;
 } Lista;
 
+// procedimento para inicializar lista
 void create_lista(Lista *l) {
   Celula *tmp = (Celula *)malloc(sizeof(Celula));
   tmp->prox = NULL;
@@ -48,6 +51,7 @@ void create_lista(Lista *l) {
   l->qtd = 0;
 }
 
+// função para adicionar novo elemento na lista
 bool add_lista(Lista *l, Pagina p) {
   Celula *nova = (Celula *)malloc(sizeof(Celula));
 
@@ -68,6 +72,7 @@ bool add_lista(Lista *l, Pagina p) {
   return true;
 }
 
+// procedimento para printar conteudo da lista
 void print_lista(Lista *l) {
   Celula *tmp = l->inicio->prox;
 
@@ -77,6 +82,7 @@ void print_lista(Lista *l) {
   }
 }
 
+// função para atualizar dados de um elemento da lista
 bool update_lista(Lista *l, Pagina p) {
   bool achou = false;
 
@@ -96,6 +102,7 @@ bool update_lista(Lista *l, Pagina p) {
   }
 }
 
+// função para deletar elemento da lista pelo codigo
 bool delete_lista(Lista *l, int codigo) {
   bool achou = false;
   Celula *ant, *tmp;
@@ -122,6 +129,7 @@ bool delete_lista(Lista *l, int codigo) {
   }
 }
 
+// procedimento para clonar uma lista em outra
 void clonar(Lista *l, Lista *clonada) {
   create_lista(clonada);
   Celula *tmp = l->inicio->prox;
@@ -134,6 +142,7 @@ void clonar(Lista *l, Lista *clonada) {
   }
 }
 
+// procedimento para concatenar duas listas em uma terceira
 void concatenar(Lista *l, Lista *l2, Lista *concatenada) {
   create_lista(concatenada);
   Celula *tmp = l2->inicio->prox;
@@ -150,6 +159,7 @@ void concatenar(Lista *l, Lista *l2, Lista *concatenada) {
   }
 }
 
+// procedimento para inverter elementos da lista
 void inverter(Lista *l) {
   Pagina *dados = (Pagina *)malloc(l->qtd * sizeof(Pagina));
   Celula *tmp = l->inicio->prox;
@@ -171,6 +181,7 @@ void inverter(Lista *l) {
   free(dados);
 }
 
+// adiciona novo elemento na lista em sua posição já ordenada
 void add_lista_ordenado(Lista *l, Pagina p) {
   Celula *nova = (Celula *)malloc(sizeof(Celula));
   if (nova == NULL) {
@@ -208,6 +219,7 @@ void add_lista_ordenado(Lista *l, Pagina p) {
   return;
 }
 
+// procedimento para acessar pagina, fazendo com que a pagina acessada passe a ficar na primeira posicação da lista
 void acessa_pagina(Lista *l, char *nome) {
   Celula *tmp = l->inicio->prox;  // temporaria
   Celula *ant = l->inicio;        // anterior
@@ -232,6 +244,7 @@ void acessa_pagina(Lista *l, char *nome) {
   printf("\nPagina nao encontrada!\n");
 }
 
+// função para pesquisar e retornar codigo caso exista ou -1
 int pesquisar(Lista *l, char *nome) {
   Celula *tmp;
   for (tmp = l->inicio->prox; tmp != NULL; tmp = tmp->prox) {

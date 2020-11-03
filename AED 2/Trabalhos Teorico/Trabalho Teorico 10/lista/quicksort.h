@@ -50,5 +50,4 @@ void quicksort(Pessoa *array, int n, char *opc) {
   } else {
     quicksortNome(array, 0, n - 1);
   }
-  // void quicksortTop(char **array, int first_line, int last_line);
 }

@@ -18,6 +18,7 @@ typedef struct Lista {
   int qtd;
 } Lista;
 
+// procedimento para inicializar lista
 void create_lista(Lista *l) {
   Celula *tmp = (Celula *)malloc(sizeof(Celula));
   tmp->prox = NULL;
@@ -27,6 +28,7 @@ void create_lista(Lista *l) {
   l->qtd = 0;
 }
 
+// função para adicionar novo elemento na lista
 bool add_lista(Lista *l, Pessoa p) {
   Celula *nova = (Celula *)malloc(sizeof(Celula));
 
@@ -47,6 +49,7 @@ bool add_lista(Lista *l, Pessoa p) {
   return true;
 }
 
+// procedimento para printar conteudo da lista
 void print_lista(Lista *l) {
   Celula *tmp = l->inicio->prox;
 
@@ -56,6 +59,7 @@ void print_lista(Lista *l) {
   }
 }
 
+// função para atualizar dados de um elemento da lista
 bool update_lista(Lista *l, Pessoa p) {
   bool achou = false;
 
@@ -75,6 +79,7 @@ bool update_lista(Lista *l, Pessoa p) {
   }
 }
 
+// função para deletar elemento da lista pelo codigo
 bool delete_lista(Lista *l, int codigo) {
   bool achou = false;
   Celula *ant, *tmp;
@@ -101,6 +106,7 @@ bool delete_lista(Lista *l, int codigo) {
   }
 }
 
+// procedimento para clonar uma lista em outra
 void clonar(Lista *l, Lista *clonada) {
   create_lista(clonada);
   Celula *tmp = l->inicio->prox;
@@ -113,6 +119,7 @@ void clonar(Lista *l, Lista *clonada) {
   }
 }
 
+// procedimento para concatenar duas listas em uma terceira
 void concatenar(Lista *l, Lista *l2, Lista *concatenada) {
   create_lista(concatenada);
   Celula *tmp = l2->inicio->prox;
@@ -129,6 +136,7 @@ void concatenar(Lista *l, Lista *l2, Lista *concatenada) {
   }
 }
 
+// procedimento para inverter elementos da lista
 void inverter(Lista *l) {
   Pessoa *dados = (Pessoa *)malloc(l->qtd * sizeof(Pessoa));
   Celula *tmp = l->inicio->prox;
@@ -150,6 +158,7 @@ void inverter(Lista *l) {
   free(dados);
 }
 
+// adiciona novo elemento na lista em sua posição já ordenada
 void add_lista_ordenado(Lista *l, Pessoa p) {
   Celula *nova = (Celula *)malloc(sizeof(Celula));
   if (nova == NULL) {
@@ -187,6 +196,7 @@ void add_lista_ordenado(Lista *l, Pessoa p) {
   return;
 }
 
+// função para pegar maior pessoa da lista
 Pessoa maior(Lista *l) {
   Celula *tmp = l->inicio->prox;
   Celula *maior = tmp;
@@ -201,6 +211,7 @@ Pessoa maior(Lista *l) {
   return maior->dado;
 }
 
+// função para pesquisar e retornar codigo caso exista ou -1
 int pesquisar(Lista *l, char *nome) {
   Celula *tmp;
   for (tmp = l->inicio->prox; tmp != NULL; tmp = tmp->prox) {
@@ -212,6 +223,7 @@ int pesquisar(Lista *l, char *nome) {
   return -1;
 }
 
+// metodo para ordenar por ordem alfabetica
 void ordena_alfabetica(Lista *l) {
   Pessoa *lista = (Pessoa *)malloc(l->qtd * sizeof(Pessoa));
 
@@ -236,6 +248,7 @@ void ordena_alfabetica(Lista *l) {
   }
 }
 
+// metodo para ordenar através do codigo
 void ordena_codigo(Lista *l) {
   Pessoa *lista = (Pessoa *)malloc(l->qtd * sizeof(Pessoa));
   char tipo[10] = "codigo";

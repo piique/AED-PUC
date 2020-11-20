@@ -1,0 +1,105 @@
+/* -------------------------------------
+            GLOBAL RESETS
+        ------------------------------------- */
+
+/*All the styling goes here*/
+
+/* .preheader {
+  color: transparent;
+  display: none;
+  height: 0;
+  max-height: 0;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  mso-hide: all;
+  visibility: hidden;
+  width: 0;
+} */
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: rgb(177, 195, 162);
+  /* background-color: blue; */
+  align-items: center;
+  width: 560px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content h1 {
+  font-size: 1.7em;
+  padding-left: 50px;
+  color: #3288ab;
+}
+
+.content p {
+  font-size: 1.4em;
+  padding-left: 50px;
+  padding-right: 40px;
+}
+
+.content .despedida {
+  color: #7d7665;
+}
+
+.divisoria {
+  border: 1px solid grey;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.assinatura {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.assinatura .logo {
+  display: flex;
+  width: 190px;
+  height: 87px;
+}
+
+.assinatura .remetente {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 100px;
+}
+
+.assinatura .remetente img {
+  width: 120px;
+  height: 120px;
+}
+
+.consideracoes {
+  text-align: center;
+}
+
+/* padding: 2px; */
+
+/* margin: 10px; */
+
+/* margin-top: 10px; */
+
+/* border: 2px solid white; */

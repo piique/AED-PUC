@@ -4,7 +4,7 @@ Lista*/*
 # unignore all files with extensions into "Listas..."
 !Lista*/*.*
 
-testes/
+# testes/
 
 teste
 estudos
